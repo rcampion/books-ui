@@ -1,0 +1,66 @@
+<div class="home-page">
+
+  <div class="container page">
+
+	<div class="search-component container-fluid">
+
+		<div class="input-group col-xs-12">
+
+			<input type="text" id="searchQuery" class="form-control"
+				autocomplete="off" placeholder="Search"
+				(keyup)="searchValueChanged()"
+				(keyup.enter)="searchFormSubmitted('ALL')"
+				[(ngModel)]="searchString" name="searchString" />
+
+			<div class="input-group-btn">
+
+				<button class="btn btn-default btn-search" type="submit"
+					(click)="searchFormSubmitted('ALL')" aria-label="search button">
+					<fa-icon class="fa-2x" icon="search"></fa-icon>
+				</button>
+			</div>
+
+		</div>
+
+	</div> 
+
+<table class="table table-striped" mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="company">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
+    <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="add">
+    <th mat-header-cell *matHeaderCellDef> Add </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary" (click)="addMember(element.id)">
+        <mat-icon class="mat-18">add</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</div>
+<mat-paginator [pageSize]="6" [pageSizeOptions]="[2, 4, 6, 10, 20]">
+</mat-paginator>
+
+
+
