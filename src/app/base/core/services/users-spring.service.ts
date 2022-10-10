@@ -160,7 +160,7 @@ export class UsersSpringService {
 
 		);
 	}
-	
+
 	findActiveUsers(
 
 		filter = '', sort: PaginationPropertySort,
@@ -407,8 +407,8 @@ export class UsersSpringService {
 
 	getUser(): Observable<User> {
 		const headers = new HttpHeaders(
-			{					
-                'apikey': application.apiKey, 
+			{
+				'apikey': application.apiKey,
 				'Access-Control-Allow-Origin': '*',
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
@@ -469,12 +469,12 @@ export class UsersSpringService {
 		console.log('Logging out');
 		const headers = new HttpHeaders(
 			{
-				'apikey': application.apiKey, 				
+				'apikey': application.apiKey,
 				'Access-Control-Allow-Origin': '*',
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
 				'Access-Control-Allow-Credentials': 'true',
-//				'Authorization': 'Bearer ' + Cookie.get('access_token')
+				//				'Authorization': 'Bearer ' + Cookie.get('access_token')
 			}
 		);
 		if (callServer) {
@@ -643,7 +643,7 @@ export class UsersSpringService {
 
 			headers: new HttpHeaders(
 				{
-					'apikey': application.apiKey,    
+					'apikey': application.apiKey,
 					'Content-Type': 'application/json',
 					'Accept': 'application/json',
 					'Access-Control-Allow-Credentials': 'true',

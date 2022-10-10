@@ -3,7 +3,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+
 import { Account } from './../models/account.model';
+
 import { ErrorDialogComponent } from '../../shared/dialogs/error-dialog/error-dialog.component';
 
 import * as AppUtils from '../../utils/app.utils';
