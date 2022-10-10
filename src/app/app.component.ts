@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UsersSpringService } from './base/core/services/users-spring.service';
+//import { UsersSpringService } from './base/core/services/users-spring.service';
 
 @Component({
     selector: 'app-root',
@@ -11,18 +11,14 @@ import { UsersSpringService } from './base/core/services/users-spring.service';
 export class AppComponent implements OnInit {
     title = 'angular-ts-client';
 
-    userService: UsersSpringService;
+    //userService: UsersSpringService;
 
-  constructor(router: Router, userService: UsersSpringService) {
+  constructor(router: Router) {
     const self = this;
-    this.userService = userService;
   }
+  
   ngOnInit() {
-    this.userService.populate();
-  }
-
-  logout(): void {
-    this.userService.logout();
+    //this.userService.populate();
   }
 
 }

@@ -15,11 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../base/shared';
 import { BookUpdateComponent } from './book-update/book-update.component';
 import { BookDeleteDialogComponent } from './book-delete/book-delete-dialog.component';
-import { BookMemberListComponent } from './book-details/book-member/book-member-list/book-member-list.component';
+//import { BookMemberListComponent } from './book-details/book-member/book-member-list/book-member-list.component';
 // tslint:disable-next-line:max-line-length
-import { BookMemberSelectionDialogComponent } from './book-details/book-member/book-member-selection-dialog/book-member-selection-dialog.component';
+//import { BookMemberSelectionDialogComponent } from './book-details/book-member/book-member-selection-dialog/book-member-selection-dialog.component';
 // tslint:disable-next-line:max-line-length
-import { BookMemberSelectionListComponent } from './book-details/book-member/book-member-selection-list/book-member-selection-list.component';
+//import { BookMemberSelectionListComponent } from './book-details/book-member/book-member-selection-list/book-member-selection-list.component';
 //import { BookEMailComponent } from './book-email/book-email.component'
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
@@ -64,9 +64,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 		BookCreateComponent,
 		BookUpdateComponent,
 		BookDeleteDialogComponent,
-		BookMemberListComponent,
-		BookMemberSelectionDialogComponent,
-		BookMemberSelectionListComponent,
+		//BookMemberListComponent,
+		//BookMemberSelectionDialogComponent,
+		//BookMemberSelectionListComponent,
 		//BookEMailComponent
 	]
 })

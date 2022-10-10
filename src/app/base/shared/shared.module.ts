@@ -11,7 +11,7 @@ import { SuccessDialogComponent } from './dialogs/success-dialog/success-dialog.
 import { ErrorDialogComponent } from './dialogs/error-dialog/error-dialog.component';
 
 import { ListErrorsComponent } from './list-errors.component';
-import { ShowAuthedDirective } from './show-authed.directive';
+//import { ShowAuthedDirective } from './show-authed.directive';
 
 @NgModule({
   imports: [
@@ -34,14 +34,14 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpClientModule,
     ListErrorsComponent,
     RouterModule,
-    ShowAuthedDirective
+    //ShowAuthedDirective
 
   ],
   declarations: [
     SuccessDialogComponent,
     ErrorDialogComponent,
     ListErrorsComponent,
-    ShowAuthedDirective
+    //ShowAuthedDirective
 
   ],
   entryComponents: [

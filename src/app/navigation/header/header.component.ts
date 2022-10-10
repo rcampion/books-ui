@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 // import { MatToolbarModule } from '@angular/material';
 import { User } from '../../base/core/models/user.model';
 
-import { UsersSpringService } from '../../base/core/services/users-spring.service';
+//import { UsersSpringService } from '../../base/core/services/users-spring.service';
 
 @Component({
     selector: 'app-header',
@@ -12,20 +12,14 @@ import { UsersSpringService } from '../../base/core/services/users-spring.servic
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-    userService: UsersSpringService;
     @Output() public sidenavToggle = new EventEmitter();
     currentUser: User;
-    constructor(router: Router, userService: UsersSpringService) {
-        this.userService = userService;
+    constructor(router: Router) {
 
     }
 
     ngOnInit() {
-        this.userService.currentUser.subscribe(
-            (userData) => {
-                this.currentUser = userData;
-            }
-        );
+
     }
 
 
@@ -33,7 +27,4 @@ export class HeaderComponent implements OnInit {
         this.sidenavToggle.emit();
     }
 
-    logout(): void {
-        this.userService.logout();
-    }
 }

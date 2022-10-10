@@ -19,8 +19,8 @@ import { AboutComponent } from './plugins/about/about.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import { UsersSpringService } from './base/core/services/users-spring.service';
-import { RegistrationService } from './base/core/services/registration.service';
+//import { UsersSpringService } from './base/core/services/users-spring.service';
+//import { RegistrationService } from './base/core/services/registration.service';
 import { AccountEventsService } from './base/core/services/account.events.service';
 import { ErrorService } from './base/core/services/error.service';
 import { ErrorComponent } from './base/error/error.component';
@@ -36,7 +36,7 @@ import { FooterComponent } from './navigation/footer/footer.component';
 // import { PasswordComponent } from './password/password.component';
 import { CoreModule } from './base/core/core.module';
 
-import { CommonService } from './base/core/services/common.service';
+//import { CommonService } from './base/core/services/common.service';
 import { AngularLogService } from './base/core/services/angular-log.service';
 import { AngularLogPublishersService } from './base/core/services/angular-log-publishers.service';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -75,9 +75,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
         useClass: RequestInterceptor,
         multi: true,
     },
-        CommonService, 
-        UsersSpringService, 
-        RegistrationService, 
+        //CommonService, 
+        //UsersSpringService, 
+        //RegistrationService, 
         //LoginRouteGuard, 
         //AuthorizationRouteGuard, 
         AccountEventsService, 
