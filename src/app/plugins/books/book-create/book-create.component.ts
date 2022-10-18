@@ -21,11 +21,17 @@ export class BookCreateComponent implements OnInit {
 	constructor(private logger: AngularLogService, private location: Location, private repository: BooksService, private dialog: MatDialog, private errorService: ErrorHandlerService) { }
 
 	ngOnInit() {
+		
 		this.bookForm = new UntypedFormGroup({		
 			id: new UntypedFormControl(''),
+			isbn: new UntypedFormControl(''),
 			title: new UntypedFormControl(''),
 			author: new UntypedFormControl(''),
+			authorId: new UntypedFormControl(''),
 			category: new UntypedFormControl(''),
+			price: new UntypedFormControl(''),
+			qty: new UntypedFormControl(''),
+			image: new UntypedFormControl(''),
 		});
 
 		this.dialogConfig = {
@@ -52,11 +58,15 @@ export class BookCreateComponent implements OnInit {
 
 	private executeBookCreation = (bookFormValue) => {
 		const book: Book = {
-
 			id: '',
+			isbn: bookFormValue.isbn,
 			title: bookFormValue.title,
 			author: bookFormValue.author,
+			authorId: bookFormValue.authorId,
 			category: bookFormValue.category,
+			price: bookFormValue.price,
+			qty: bookFormValue.qty,
+			image: bookFormValue.image,
 		};
 
 		const apiUrl = 'books';

@@ -4,7 +4,7 @@
     <form [formGroup]="bookForm" autocomplete="off" novalidate (ngSubmit)="updateBook(bookForm.value)" fxLayout="column wrap"
       fxLayoutAlign="center center" fxLayoutGap="10px">
       <mat-card-content>
-
+      
 <br/>
         <mat-form-field>
           <input matInput type="text" placeholder="Book Title" formControlName="title" id="title">
@@ -27,7 +27,33 @@
           <mat-error *ngIf="hasError('category', 'maxlength')">You have more than 120 characters</mat-error>
         </mat-form-field>
 <br/>
-
+        <mat-form-field>
+          <input matInput type="text" placeholder="Book ISBN" formControlName="isbn" id="isbn">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('isbn', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Book Author Id" formControlName="authorId" id="authorId">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('authorId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>        
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Book Price" formControlName="price" id="price">
+          <mat-error *ngIf="hasError('authorId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Book Quantity" formControlName="qty" id="qty">
+          <mat-error *ngIf="hasError('authorId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Book Image" formControlName="image" id="image">
+          <mat-error *ngIf="hasError('authorId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+        
       </mat-card-content>
       
       <mat-card-actions align="start">

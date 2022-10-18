@@ -29,12 +29,16 @@ export class BookUpdateComponent implements OnInit {
 
     ngOnInit() {
 
-		this.bookForm = new UntypedFormGroup({
-		
+		this.bookForm = new UntypedFormGroup({		
 			id: new UntypedFormControl(''),
+			isbn: new UntypedFormControl(''),
 			title: new UntypedFormControl(''),
 			author: new UntypedFormControl(''),
+			authorId: new UntypedFormControl(''),
 			category: new UntypedFormControl(''),
+			price: new UntypedFormControl(''),
+			qty: new UntypedFormControl(''),
+			image: new UntypedFormControl(''),
 		});
 
         this.dialogConfig = {
@@ -64,9 +68,14 @@ export class BookUpdateComponent implements OnInit {
 
     private populateForm() {
 			this.bookForm.controls['id'].setValue(this.book.id);
+			this.bookForm.controls['isbn'].setValue(this.book.isbn);
 			this.bookForm.controls['title'].setValue(this.book.title);
 			this.bookForm.controls['author'].setValue(this.book.author);
+			this.bookForm.controls['authorId'].setValue(this.book.authorId);
 			this.bookForm.controls['category'].setValue(this.book.category);
+			this.bookForm.controls['price'].setValue(this.book.price);
+			this.bookForm.controls['qty'].setValue(this.book.qty);
+			this.bookForm.controls['image'].setValue(this.book.image);
 
     }
 
@@ -79,10 +88,14 @@ export class BookUpdateComponent implements OnInit {
     private executeBookUpdate = (bookFormValue) => {
         const book: Book = {
 			id: bookFormValue.id,
+			isbn: bookFormValue.isbn,
 			title: bookFormValue.title,
 			author: bookFormValue.author,
+			authorId: bookFormValue.authorId,
 			category: bookFormValue.category,
-
+			price: bookFormValue.price,
+			qty: bookFormValue.qty,
+			image: bookFormValue.image,
          };
 
         const apiUrl = 'books';
