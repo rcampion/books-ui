@@ -1,0 +1,20 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <h1 mat-dialog-title>Message</h1>
+  <mat-dialog-content>
+    <p>{{data.errorMessage}}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+<!--
+    <button mat-raised-button color="primary" (click)="closeDialog()">OK</button>
+      
+	<button type="button" mat-raised-button color="warn"
+			(click)="onCancel()">Cancel</button>  
+
+    <button mat-button type="button" mat-dialog-close>Cancel</button>
+-->
+  <button mat-raised-button color="primary" (click)="onConfirm()">Yes</button>
+ 
+  <button mat-raised-button color="warn" (click)="onDismiss()">No</button>
+ 
+  </mat-dialog-actions>
+</section>

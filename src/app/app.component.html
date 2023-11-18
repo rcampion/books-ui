@@ -1,0 +1,44 @@
+<div class="cid-s48MCQYojq flex flex-col items-center justify-center w-full" *ngIf="!isPortal">
+
+	<section class="w-fullheader1 cid-s48MCQYojq mbr-fullscreen mbr-parallax-background " data-bs-version="5.1"
+		id="header1-f">
+
+		<div class="mbr-overlay" style="opacity: 0; background-color: rgb(255, 255, 255);"></div>
+
+		<div class="align-center container">
+			
+			<div class="profile-image-size">
+				<!--  <img src="assets/common/images/zdslogic-logo-circle.png"> -->
+				<img src="assets/common/images/rcampion-logo-435x175.png">
+			</div>
+			
+			<div style="color: gold;">
+				<h1>
+					<strong>Welcome to my Demo</strong>
+				</h1>
+			</div>
+			<br>
+			<div style="color: white;">
+				<p>An Angular / Java Plugin Architecture</p>
+			</div>
+			<div class="mbr-section-btn mt-3">
+				<a class="btn btn-white display-4" id="myLink" href="#" (click)="redirectToProfile();">Enter</a>
+			</div>
+
+			<div>
+
+				<div class="home-image-size">
+					<!--  <img src="assets/common/images/zdslogic-logo-circle.png"> -->
+					<!-- <img src="assets/common/images/zdslogic-home.gif"> -->
+					<img src="assets/common/images/ZdsLogic-Plugin-Architecture-Screenshot 2023-11-18-01.png">
+				</div>
+
+			</div>
+		</div>
+		
+	</section>
+</div>
+
+<ng-container *ngIf="isPortal">
+	<router-outlet></router-outlet>
+</ng-container>

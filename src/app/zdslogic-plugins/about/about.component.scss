@@ -1,0 +1,173 @@
+.header-image {	
+	width: 100%;
+	height: 592px;
+	background: url("../../../assets/images/about/v145_789.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;		
+
+	.header-text {				
+		font-family: Roboto;
+		font-weight: bold;
+		color: white;
+		font-size: 48px;		
+		line-height: 68px;
+		letter-spacing: 6.25%;		
+	}
+}
+
+.our-story-section {
+	position: relative;
+	margin-top: 0px;
+}
+
+.our-story {	
+	font-family: 'Roboto';		
+}
+
+.our-story-sub-1 {	
+	font-family: 'Roboto';
+	font-weight: bold;
+	font-size: 28px;	
+	color: #3F51B5;
+	padding: 20px 0;
+
+	span{
+		font-weight: bold;
+		color:#FEA202;
+	}
+}
+
+.our-story-sub-text {	
+	color: #333333;	
+	font-family: 'Roboto';
+	font-style: normal;	
+	font-size: 20px;
+	line-height: 43px;	
+}
+
+.site-map-section {		
+	.site-map-header {		
+		font-family: 'Roboto';
+		font-weight: Bold;
+		font-size: 40px;
+		text-align: center;
+		color: #3F51B5;
+		span{
+			color:#FEA202;
+			font-weight: bold;
+		}
+	}
+
+	.site-map-text {
+		margin-top: 22px;
+		font-size: 20px;	
+		line-height: 40px;
+		text-align: center;		
+		color:#333333;
+	}
+
+	.site-map-chart{
+		margin:35px 15%;
+		padding-top: 2rem;
+		padding-left: 4rem;
+		background: #3F51B5;
+		border-radius: 20px;
+	}
+}
+
+.recruiting-section, .who-section{
+	background: rgba(51, 51, 51, 0.08);
+
+	h2{
+		color: #3F51B5;
+		span{
+			color: #FEA202;
+			font-weight: bold;
+		}
+	}
+	ul{
+		padding-left:30px;
+		li{
+			font-size: 20px;
+			line-height: 40px;
+			position: relative;
+			&:before{
+				content: "";
+				background-color: #3F51B5;
+				width: 14px;
+				height: 14px;
+				border-radius: 100%;
+				display: block;
+				position: absolute;
+				z-index: 10;
+				left: -24px;
+				top: 12px;
+			}
+		}
+	}
+}
+
+.who-section{
+	li{
+		margin-bottom:12px
+	}
+}
+
+.smart-home-section{
+	h2{
+		color: #3F51B5;
+		span{
+			color: #FEA202;
+		}
+	}
+}
+
+.knowledge-section{
+	h2{
+		color: #3F51B5;
+		span{
+			color: #FEA202;
+			font-weight: bold;
+		}
+	}
+	.knowledge-chart{
+		margin:35px 15%;
+		padding-top: 2rem;
+		padding-left: 4rem;
+		// background: #333333;
+		border-radius: 20px;
+	}
+}
+	
+.starting-section{
+	background: #143452;
+
+	h2{
+		color: #fff;
+		span{
+			color: #fff;
+			font-weight: bold;
+		}
+	}
+
+	button{
+    background-color: #fff;
+    &:hover{
+      background-color: #cdccca;
+    }
+  }
+}
+
+.external-links-section{
+	margin-bottom: 40px;
+	li{
+		list-style: none;
+
+		img{
+			width: 34px;
+			height: 34px;
+			margin: 4px auto;
+		}
+	}
+}

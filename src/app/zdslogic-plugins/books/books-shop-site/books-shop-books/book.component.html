@@ -1,0 +1,118 @@
+<!--
+<header>
+	<nav>
+		<li><a href="">All Books</a></li>
+		<li><a href="">Electronics</a></li>
+		<li><a href="">Garments</a></li>
+		<li><a href="">Jellwery</a></li>
+	</nav>
+</header>
+-->
+
+<!--
+<div class="atmcards">
+  <div class="box uba">
+    <h1><i>UBA</i></h1>
+    <p>debit</p>
+    <h3>0000-1111-2222-3333-4444</h3>
+    <p class="date">Expires 06/22</p>
+    <h4 class="verve"><span>V</span>erve</h4>
+    <h4>Goushith C Mohan</h4>
+  </div>
+  <div class="box eco">
+    <h1><i>ECOBANK</i></h1>
+    <p>debit</p>
+    <h3>0000-1111-2222-3333-4444</h3>
+    <p class="date">Expires 06/22</p>
+    <h4 class="verve"><span>V</span>erve</h4>
+    <h4>Goushith C Mohan</h4>
+  </div>
+  <div class="box gtb">
+    <h1><i>GTbank</i></h1>
+    <p>debit</p>
+    <h3>0000-1111-2222-3333-4444</h3>
+    <p class="date">Expires 06/22</p>
+    <h4 class="verve"><span>V</span>erve</h4>
+    <h4>Goushith C Mohan</h4>
+  </div>
+</div>
+-->
+
+<div class="container">
+
+<!--
+	<div class="search-component container-fluid">
+
+			<div class="input-group col-xs-12">
+
+				<input type="text" id="searchQuery" class="form-control"
+					autocomplete="off" placeholder="Search"
+					(keyup)="searchValueChanged()"
+					(keyup.enter)="searchFormSubmitted('ALL')"
+					[(ngModel)]="searchString" name="searchString" />
+
+				<div class="input-group-btn">
+
+					<button class="btn btn-default btn-search" type="submit"
+						(click)="searchFormSubmitted('ALL')" aria-label="search button">
+						<fa-icon class="fa-2x" icon="search"></fa-icon>
+					</button>
+				</div>
+
+			</div>
+			
+	</div>
+-->
+	
+	<div class="row">
+		<!--  
+    <ng-container *ngFor="let item of bookList |filter:searchKey:'title'">
+-->
+		<ng-container
+			*ngFor="let item of booksList">
+
+		<div class="card col-md-3 ">
+			<img src="{{item.image}}" alt="">
+			<h5
+				style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{
+				item.author}}</h5>
+			<p
+				style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</p>
+			<p>
+			<strong>Qty :</strong>
+			<input type="number" min="1" max="5" style="width: 3em"
+				value="{{item.qty}}" [(ngModel)]="item.qty">
+				<strong>Price : {{item.price}}</strong>
+			</p>
+			
+			<div *ngIf="!itemIsInCart(item)">
+			<button class="btn btn-success" (click)="addToCart(item)">Add
+				to cart</button>
+			</div>	
+				
+			<div *ngIf="itemIsInCart(item)">
+			<button class="btn btn-success"
+					[routerLink]="['/books/cart']">In Cart</button>
+			</div>
+
+		</div>
+		</ng-container>
+
+	</div>
+</div>
+
+<nav [hidden]="loading || totalPages.length <= 1">
+  <ul class="pagination">
+
+    <li class="page-item"
+      [ngClass]="{'active': pageNumber === currentPage}"
+      *ngFor="let pageNumber of totalPages"
+      (click)="setPageTo(pageNumber)">
+
+      <a class="page-link" >{{ pageNumber }}</a>
+
+    </li>
+
+  </ul>
+</nav>
+

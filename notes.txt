@@ -1,0 +1,4 @@
+ng build --prod --base-href /
+ng build --configuration production --base-href /
+ng build --configuration development --base-href /
+

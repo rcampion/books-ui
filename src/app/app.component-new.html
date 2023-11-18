@@ -1,0 +1,274 @@
+<!--
+<app-size-detector></app-size-detector>
+-->
+<div *ngIf="!isPortal">
+
+	<app-main-menu #appMenu></app-main-menu>
+
+	<app-layout>
+
+	<section data-bs-version="5.1"
+		class="header1 cid-s48MCQYojq mbr-fullscreen mbr-parallax-background"
+		id="header1-f">
+
+		<div class="mbr-overlay"
+			style="opacity: 0; background-color: rgb(255, 255, 255);"></div>
+
+		<div class="align-center container">
+			<div>
+
+				<!--  <img src="assets/common/images/zdslogic-logo-circle.png"> -->
+				<img src="assets/common/images/zdslogic-home.jpg">
+
+				<div>
+					<!--
+	                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1">
+	                	
+	                	<strong>Welcome</strong>
+	                	
+	                </h1>
+	                -->
+					<br>
+					<div style="color: gold;">
+						<h1>
+							<p class="mbr-fonts-style">Welcome to ZdsLogic Technologies</p>
+						</h1>
+					</div>
+					<div style="color: white;">
+						<p>The Social Network for Technology minded individuals (and
+							friends).</p>
+					</div>
+					<div class="mbr-section-btn mt-3">
+						<a class="btn btn-white display-4" id="myLink" href="#"
+							(click)="togglePortal();">Enter</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<br>
+
+	<strong>DBA:</strong> ZdsLogic Technologies LLC. <br>
+	<strong>Customer Service Address:</strong> 4 Meetinghouse Ln, Unit #4,
+	Little Compton, RI, 02837 <br>
+	<strong>Customer Service Phone Number:</strong> 401-608-2548 <br>
+	<strong>Customer Service Email Address:</strong> admin@zdslogic.com <br>
+	<strong>Pricing: Subscription:</strong> 29.99/month <br>
+	<strong>Return/Refund Policy:</strong> 30-days <br>
+	<strong>Shipping Method:</strong> USPS (United States Postal Service) <br>
+	<br>
+	
+<strong>Pricing:</strong>
+<br>
+	<ul>
+		<li>ZdsLogic Developer Network Subscription: 29.99/month</li>
+
+		<li>
+			<p>ZdsLogic Technologies is building Software Development Teams
+				and offering clients a Monthly Subscription.</p> Let us build your Dream
+			Team. Flexible Plans.
+			<ul>
+				<li>- Senior Frontend Developers</li>
+				<li>- Senior Backend Developers</li>
+				<li>- UI/UX Designers</li>
+				<li>- QA Engineers</li>
+				<li>- Project Managers</li>
+			</ul>
+
+			<div>
+
+				<a class="d-inline-block nav-link px-0 fs-18"
+					(click)="redirectToTeamsPricing();"> Teams Pricing
+					<div
+						style="height: 2px; background: linear-gradient(90deg, rgba(108, 213, 246, 1) 0%, rgba(248, 157, 92, 1) 50%, rgba(91, 106, 240, 1) 100%);">
+					</div>
+				</a>
+
+			</div>
+		</li>
+	</ul>
+
+	<section data-bs-version="5.1" class="content1 cid-s48udlf8KU"
+		id="content1-8">
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="title col-12 col-md-9">
+					<h3
+						class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
+						<strong>Software Development, Software Development
+							Training and Technical Recruiting</strong>
+					</h3>
+
+					<h4
+						class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">
+						<div>Software Development and Training</div>
+						<br>
+						<div>
+							&nbsp; &nbsp;&nbsp; <span style="font-size: 1.2rem;">-
+								Java, Spring Boot and Angular 2+</span>
+						</div>
+						<br>
+						<div></div>
+						<div>
+							<br>
+						</div>
+						<br>
+						<div>Technical Recruiting</div>
+						<br>
+						<div></div>
+						<ul>
+
+							<li><strong>Resumes</strong></li>
+							<li><strong>Job Board</strong></li>
+							<li><strong>Profiles</strong></li>
+							<li><strong>Messaging</strong></li>
+							<li><strong>Video Conferencing</strong></li>
+
+						</ul>
+
+					</h4>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+
+		<div class="align-center container">
+			<app-site-map-nodes-chart></app-site-map-nodes-chart>
+		</div>
+
+		<div class="align-center container">
+
+			<!--  
+<a href="https://www.zdslogic.com/contact">
+<img src="assets/common/images/zdslogic-contact-us.png" alt="Contact Us" style="width:270px;height:175x;">
+</a>
+-->
+
+			<a href="https://www.zdslogic.com/contact" class="icon"
+				onclick="redirectToContact()"> <img
+				src="assets/common/images/zdslogic-contact-us.png" alt="Contact Us"
+				style="width: 270px; height: 175x;">
+			</a>
+
+		</div>
+
+		<div
+			class="position-relative overflow-hidden p-2 p-md-4 m-md-2 text-center bg-light">
+			<div class="col-md-3 p-lg-3 mx-auto my-3">
+				<span class="lead font-weight-normal">Our Most Popular
+					Technologies </span>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-9">
+					<app-slideshow></app-slideshow>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section data-bs-version="5.1" class="image3 cid-s48upRUlSD"
+		id="image3-9">
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-9">
+					<div class="image-wrapper">
+						<img src="assets/common/images-slide/collaboration.png"
+							alt="ZdsLogic Technologies">
+						<p
+							class="mbr-description mbr-fonts-style mt-2 align-center display-4">
+							Collaboration</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section data-bs-version="5.1" class="header16 cid-t7ygwVRrm2"
+		data-bg-video="/assets/common/video/zdslogic-video-one.mp4"
+		id="header16-k">
+
+		<div class="mbr-overlay"
+			style="opacity: 0.8; background-color: rgb(255, 255, 255);"></div>
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-10">
+					<h1 class="mbr-section-title mbr-fonts-style mb-3 display-1">
+						<strong><br></strong><br> <strong>Watch our
+							Video</strong>
+					</h1>
+					<p class="mbr-text mbr-fonts-style display-7"></p>
+					<div class="mbr-section-btn mt-3">
+						<a class="btn btn-primary display-4" href="/about">Learn More</a>
+					</div>
+					<div class="video-wrapper mt-4">
+						<iframe class="mbr-embedded-video"
+							src="https://www.youtube.com/embed/s2GjRCn57bY?rel=0&amp;amp;mute=1&amp;showinfo=0&amp;autoplay=0&amp;loop=0"
+							width="1280" height="720" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<app-main-footer></app-main-footer> </app-layout>
+
+</div>
+
+
+
+
+<div *ngIf="isPortal">
+
+	<app-main-menu #appMenu></app-main-menu>
+
+	<app-layout>
+
+	<section data-bs-version="5.1"
+		class="header1 portal-background mbr-fullscreen mbr-parallax-background"
+		id="header1-f">
+
+		<div class="mbr-overlay"
+			style="opacity: 0; background-color: rgb(255, 255, 255);"></div>
+
+		<div class="align-center container">
+
+			<div class="alert-div">
+				<alert></alert>
+			</div>
+
+			<mat-sidenav-container> <mat-sidenav
+				mode="side" #sidenav role="navigation"> <app-sidenav-list
+				(sidenavClose)="sidenav.close()"> </app-sidenav-list> </mat-sidenav> <mat-sidenav-content>
+
+			<app-page (sidenavToggle)="sidenav.toggle()"></app-page> </mat-sidenav-content> </mat-sidenav-container>
+
+			<div class="jumbotron">
+				<div>
+					<div *ngIf="message" class="alert alert-success">{{message.text}}</div>
+				</div>
+			</div>
+
+
+
+		</div>
+	</section>
+
+
+	<app-main-footer></app-main-footer> </app-layout>
+
+</div>
+
+
+<!--  
+<app-error></app-error>
+-->
