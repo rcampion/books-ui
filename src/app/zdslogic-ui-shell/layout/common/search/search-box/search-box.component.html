@@ -1,0 +1,13 @@
+<div id="overlayContainer" class="inset-0 flex items-center shrink-0 z-99 border rounded-full bg-card">
+	<mat-icon
+			class="absolute ml-4"			
+			[svgIcon]="'heroicons_outline:search'"></mat-icon>
+	<input
+			class="px-12 py-3 w-full w-72"
+			name="searchString"
+			id="appSearchBox" #appSearchBoxValue
+			(keyup)="searchValueChanged()"			
+			[(ngModel)]="searchString"
+			[placeholder]="'Search...'">							
+</div>
+

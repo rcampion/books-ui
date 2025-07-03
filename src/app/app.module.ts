@@ -15,9 +15,9 @@ import { RouterStateSnapshot, ActivatedRouteSnapshot, Router, RouteReuseStrategy
 
 import { MarkdownModule } from 'ngx-markdown';
 
-import { FuseModule } from 'app/zdslogic-shell/@fuse';
-import { FuseConfigModule } from 'app/zdslogic-shell/@fuse/services/config';
-import { FuseMockApiModule } from 'app/zdslogic-shell/@fuse/lib/mock-api';
+import { FuseModule } from 'app/zdslogic-ui-shell/@fuse';
+import { FuseConfigModule } from 'app/zdslogic-ui-shell/@fuse/services/config';
+import { FuseMockApiModule } from 'app/zdslogic-ui-shell/@fuse/lib/mock-api';
 
 import { RecaptchaModule } from 'ng-recaptcha';
 import {
@@ -43,9 +43,9 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { SlideshowModule } from 'ng-simple-slideshow';
 import { GoogleMapsModule } from '@angular/google-maps';
 
-import { CoreModule } from 'app/zdslogic-shell/core/core.module';
-import { appConfig } from 'app/zdslogic-shell/core/config/app.config';
-import { LayoutModule } from 'app/zdslogic-shell/layout/layout.module';
+import { CoreModule } from 'app/zdslogic-ui-shell/core/core.module';
+import { appConfig } from 'app/zdslogic-ui-shell/core/config/app.config';
+import { LayoutModule } from 'app/zdslogic-ui-shell/layout/layout.module';
 
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
@@ -55,13 +55,13 @@ import { appRoutes } from 'app/app.routing';
 //zdslogic directives
 
 //zdslogic modules
-import { MaterialModule } from './zdslogic-base/material/material.module';
-//import { NzModule } from './zdslogic-base/nz/nz.module';
-//import { ZdsCoreModule } from './zdslogic-base/core';
+import { MaterialModule } from './zdslogic-ui-base/material/material.module';
+//import { NzModule } from './zdslogic-ui-base/nz/nz.module';
+//import { ZdsCoreModule } from './zdslogic-ui-base/core';
 
 //zdslogic services
-import { AngularLogPublishersService } from './zdslogic-base/core/services/angular-log-publishers.service';
-import { AngularLogService } from './zdslogic-base/core/services/angular-log.service';
+import { AngularLogPublishersService } from './zdslogic-ui-base/core/services/angular-log-publishers.service';
+import { AngularLogService } from './zdslogic-ui-base/core/services/angular-log.service';
 
 const routerConfig: ExtraOptions = {
 	preloadingStrategy: PreloadAllModules,

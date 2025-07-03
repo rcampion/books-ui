@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 //import { AuthGuard } from 'app/core/auth/guards/auth.guard';
-import { LayoutComponent } from 'app/zdslogic-shell/layout/layout.component';
+import { LayoutComponent } from 'app/zdslogic-ui-shell/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
 
 //zdslogic components
@@ -32,9 +32,9 @@ export const appRoutes: Route[] = [
 		path: '',
 		component: LayoutComponent,
 		children: [
-			{ path: '', loadChildren: () => import('app/zdslogic-shell/modules/landing/home/home.module').then(m => m.LandingHomeModule) },
-			{ path: 'home', loadChildren: () => import('app/zdslogic-shell/modules/landing/home/home.module').then(m => m.LandingHomeModule) },
-			{ path: 'about', loadChildren: () => import('app/zdslogic-plugins/about/about.module').then(m => m.AboutModule) },
+			{ path: '', loadChildren: () => import('app/zdslogic-ui-shell/modules/landing/home/home.module').then(m => m.LandingHomeModule) },
+			{ path: 'home', loadChildren: () => import('app/zdslogic-ui-shell/modules/landing/home/home.module').then(m => m.LandingHomeModule) },
+			{ path: 'about', loadChildren: () => import('app/zdslogic-ui-plugins/about/about.module').then(m => m.AboutModule) },
 /*
 			{
 				path: 'articles',
@@ -51,11 +51,11 @@ export const appRoutes: Route[] = [
 */
 			{
 				path: 'books',
-				loadChildren: () => import('./zdslogic-plugins/books/books-shop-site/books-shop-site.module').then(m => m.BooksShopSiteModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/books/books-shop-site/books-shop-site.module').then(m => m.BooksShopSiteModule)
 			},
 			{
 				path: 'books-admin',
-				loadChildren: () => import('./zdslogic-plugins/books/books-admin/books-admin.module').then(m => m.BooksAdminModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/books/books-admin/books-admin.module').then(m => m.BooksAdminModule)
 			},
 /*
 			{
@@ -125,11 +125,11 @@ export const appRoutes: Route[] = [
 
 			{ path: 'meet', component: VideoJitsiPublicComponent },
 
-			{ path: 'confirmation-required', loadChildren: () => import('app/zdslogic-shell/modules/auth/confirmation-required/confirmation-required.module').then(m => m.AuthConfirmationRequiredModule) },
-			{ path: 'forgot-password', loadChildren: () => import('app/zdslogic-shell/modules/auth/forgot-password/forgot-password.module').then(m => m.AuthForgotPasswordModule) },
-			{ path: 'reset-password', loadChildren: () => import('app/zdslogic-shell/modules/auth/reset-password/reset-password.module').then(m => m.AuthResetPasswordModule) },
-			{ path: 'sign-in', loadChildren: () => import('app/zdslogic-shell/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule) },
-			{ path: 'sign-up', loadChildren: () => import('app/zdslogic-base/registration/registration.routing/registration-routing.module').then(m => m.RegistrationRoutingModule) },
+			{ path: 'confirmation-required', loadChildren: () => import('app/zdslogic-ui-shell/modules/auth/confirmation-required/confirmation-required.module').then(m => m.AuthConfirmationRequiredModule) },
+			{ path: 'forgot-password', loadChildren: () => import('app/zdslogic-ui-shell/modules/auth/forgot-password/forgot-password.module').then(m => m.AuthForgotPasswordModule) },
+			{ path: 'reset-password', loadChildren: () => import('app/zdslogic-ui-shell/modules/auth/reset-password/reset-password.module').then(m => m.AuthResetPasswordModule) },
+			{ path: 'sign-in', loadChildren: () => import('app/zdslogic-ui-shell/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule) },
+			{ path: 'sign-up', loadChildren: () => import('app/zdslogic-ui-base/registration/registration.routing/registration-routing.module').then(m => m.RegistrationRoutingModule) },
 */
 		]
 	},
@@ -144,8 +144,8 @@ export const appRoutes: Route[] = [
 			layout: 'empty'
 		},
 		children: [
-			{ path: 'sign-out', loadChildren: () => import('app/zdslogic-shell/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule) },
-			{ path: 'unlock-session', loadChildren: () => import('app/zdslogic-shell/modules/auth/unlock-session/unlock-session.module').then(m => m.AuthUnlockSessionModule) },
+			{ path: 'sign-out', loadChildren: () => import('app/zdslogic-ui-shell/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule) },
+			{ path: 'unlock-session', loadChildren: () => import('app/zdslogic-ui-shell/modules/auth/unlock-session/unlock-session.module').then(m => m.AuthUnlockSessionModule) },
 /*
 			{
 				path: 'contacts',
@@ -179,7 +179,7 @@ export const appRoutes: Route[] = [
 
 			{
 				path: 'users',
-				loadChildren: () => import('./zdslogic-base/users/users.module').then(m => m.UsersModule)
+				loadChildren: () => import('./zdslogic-ui-base/users/users.module').then(m => m.UsersModule)
 			},
 
 			{
@@ -210,19 +210,19 @@ export const appRoutes: Route[] = [
 		children: [
 			{
 				path: 'pages', children: [
-					{ path: 'coming-soon', loadChildren: () => import('app/zdslogic-shell/modules/admin/pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule) },
+					{ path: 'coming-soon', loadChildren: () => import('app/zdslogic-ui-shell/modules/admin/pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule) },
 					{
 						path: 'error', children: [
-							{ path: '404', loadChildren: () => import('app/zdslogic-shell/modules/admin/pages/error/error-404/error-404.module').then(m => m.Error404Module) },
-							{ path: '500', loadChildren: () => import('app/zdslogic-shell/modules/admin/pages/error/error-500/error-500.module').then(m => m.Error500Module) }
+							{ path: '404', loadChildren: () => import('app/zdslogic-ui-shell/modules/admin/pages/error/error-404/error-404.module').then(m => m.Error404Module) },
+							{ path: '500', loadChildren: () => import('app/zdslogic-ui-shell/modules/admin/pages/error/error-500/error-500.module').then(m => m.Error500Module) }
 						]
 					},
 					// Maintenance
-					{ path: 'maintenance', loadChildren: () => import('app/zdslogic-shell/modules/admin/pages/maintenance/maintenance.module').then(m => m.MaintenanceModule) }
+					{ path: 'maintenance', loadChildren: () => import('app/zdslogic-ui-shell/modules/admin/pages/maintenance/maintenance.module').then(m => m.MaintenanceModule) }
 				]
 			},
 			// 404 & Catch all
-			{ path: '404-not-found', pathMatch: 'full', loadChildren: () => import('app/zdslogic-shell/modules/admin/pages/error/error-404/error-404.module').then(m => m.Error404Module) },
+			{ path: '404-not-found', pathMatch: 'full', loadChildren: () => import('app/zdslogic-ui-shell/modules/admin/pages/error/error-404/error-404.module').then(m => m.Error404Module) },
 			{ path: '**', redirectTo: '404-not-found' },
 
 		]

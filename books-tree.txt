@@ -1,5 +1,5 @@
-├── zdslogic-base
-├── zdslogic-plugins
+├── zdslogic-ui-base
+├── zdslogic-ui-plugins
 │   ├── books
 │   │   ├── books-admin
 │   │   │   ├── books-admin-container
@@ -16,9 +16,9 @@
 │   │   │   ├── services
 │   │   │   │   ├── books.datasource.ts
 │   │   │   │   ├── books.service.ts
-└── zdslogic-shell
+└── zdslogic-ui-shell
 
-├── com.zdslogic.server.books
+├── com.zdslogic.server.plugins.books
 │   ├── domain
 │   │   ├── BookEntity.java
 │   ├── repo

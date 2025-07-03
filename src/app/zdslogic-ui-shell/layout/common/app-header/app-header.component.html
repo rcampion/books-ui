@@ -1,0 +1,16 @@
+
+<div *ngIf="isUserLoggedIn">  
+  <ng-chat #ngChatInstance 
+    [adapter]="adapter" 
+    [userId]="userId" 
+    [title]="title" 
+    [isCollapsed]="isCollapsed"
+    [theme]="theme" 
+    [historyEnabled]="historyEnabled" 
+    [browserNotificationsEnabled]="browserNotificationsEnabled"
+    [emojisEnabled]="emojisEnabled" 
+    [fileUploadUrl]=fileUploadUrl
+    (onParticipantChatOpened)="onParticipantChatOpened($event)"
+    (onParticipantChatClosed)="onParticipantChatClosed($event)">
+  </ng-chat>
+</div>

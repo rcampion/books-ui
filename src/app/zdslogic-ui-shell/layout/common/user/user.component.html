@@ -1,0 +1,72 @@
+<ng-container *ngIf="!isUserLoggedIn">
+    <div class="flex items-center cursor-pointer px-6 py-3 rounded hover:bg-slate-100" [matMenuTriggerFor]="loginActions">	
+        <mat-icon
+            class="icon-size-5 mr-3"
+            [svgIcon]="'heroicons_outline:user'"></mat-icon>
+        <span class="leading-none">Account</span>                        
+    </div>
+    <mat-menu [xPosition]="'before'" #loginActions="matMenu">
+        <div class="flex flex-col py-1">
+            <div class="flex px-6 py-3 rounded hover:bg-slate-100 text-gray-600 items-center justify-center" (click)="loginSSO()">
+                <span>Sign In</span>
+                <mat-icon class="ml-2 icon-size-5" [svgIcon]="'heroicons_solid:login'"></mat-icon>
+            </div>
+            <div class="flex px-6 py-3 rounded hover:bg-slate-100 text-gray-600 items-center justify-center" (click)="signUp()">
+                <span>Sign Up</span>
+                <mat-icon class="ml-2 icon-size-5" [svgIcon]="'heroicons_solid:user-add'"></mat-icon>
+            </div>
+        </div>
+    </mat-menu>
+</ng-container>
+
+<ng-container *ngIf="isUserLoggedIn">
+    <div class="flex items-center" [matMenuTriggerFor]="userActions">
+        <!-- Button -->
+        <button mat-icon-button>
+            <span class="relative">
+                <img class="w-7 h-7 rounded-full" *ngIf="showAvatar && profileEntity?.imageURL" [src]="profileEntity?.imageURL">
+                <mat-icon *ngIf="!showAvatar || !profileEntity?.imageURL" [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
+                <span class="absolute right-0 bottom-0 w-2 h-2 rounded-full" 
+                    [ngClass]="[presenceTypes[currentUser.presenceStatus].statusColor]"></span>
+            </span>
+        </button>
+        <span class="ml-1 cursor-pointer">
+            {{ currentUser.userName }}
+        </span>
+    </div>
+    <mat-menu [xPosition]="'before'" #userActions="matMenu">
+        <button mat-menu-item>
+            <span class="flex flex-col leading-none">
+                <span>Signed in as</span>
+                <span class="mt-1.5 text-md font-medium">{{currentUser.email}}</span>
+            </span>
+        </button>
+        <mat-divider class="my-2"></mat-divider>
+        <button mat-menu-item (click)="redirectToProfile()">
+            <mat-icon [svgIcon]="'heroicons_outline:user-circle'"></mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon [svgIcon]="'heroicons_outline:cog'"></mat-icon>
+            <span>Settings</span>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="userStatus">
+            <mat-icon [svgIcon]="'heroicons_outline:dots-circle-horizontal'"></mat-icon>
+            <span>Status</span>
+        </button>
+        <mat-divider class="my-2"></mat-divider>
+        <button mat-menu-item (click)="signOut()">
+            <mat-icon [svgIcon]="'heroicons_outline:logout'"></mat-icon>
+            <span>Sign out</span>
+        </button>
+    </mat-menu>
+
+    <mat-menu class="user-status-menu" #userStatus="matMenu">        
+        <button *ngFor="let presenceType of presenceTypes"
+            mat-menu-item (click)="updateUserStatus(presenceType.value)">
+            <span class="w-4 h-4 mr-3 rounded-full" [ngClass]="[presenceType.statusColor]"></span>
+            <span>{{presenceType.viewValue}}</span>
+        </button>
+    </mat-menu>      
+    
+</ng-container>

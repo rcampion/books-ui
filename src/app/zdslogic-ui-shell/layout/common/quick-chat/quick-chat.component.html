@@ -1,0 +1,119 @@
+<div class="fixed lg:sticky top-0 bottom-0 lg:left-full w-full sm:w-96 lg:w-16 lg:h-screen lg:shadow">
+	<div class="flex flex-col w-full sm:w-96 h-full transition-transform duration-400 ease-drawer bg-card"
+		[ngClass]="{'-translate-x-full sm:-translate-x-96 lg:-translate-x-80 shadow': opened, 'translate-x-0': !opened}">
+
+		<!-- Header -->
+		<div class="quick-chat-header flex flex-0 items-center justify-start cursor-pointer">
+
+			<!-- Toggle -->
+			<ng-container *ngIf="!opened || (opened && !selectedChat)">
+				<div class="flex flex-auto items-center justify-center">
+					<div class="flex flex-0 items-center justify-center w-16">
+						<button mat-mini-fab matTooltip="Add Connection" [color]="'primary'" (click)="redirectToAdd()">
+							<mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+						</button>
+					</div>
+					<div class="text-lg font-medium text-secondary">Connections</div>
+					<button (click)="toggle()" class="ml-auto mr-4" mat-icon-button>
+						<mat-icon [svgIcon]="'heroicons_outline:x'"></mat-icon>
+					</button>
+				</div>
+			</ng-container>
+
+			<!-- Contact info -->
+			<ng-container *ngIf="opened && selectedChat">
+				<div class="flex flex-auto items-center ml-3">
+					<div class="relative flex flex-0 items-center justify-center w-10 h-10">
+						<ng-container *ngIf="chat.contact.avatar">
+							<img class="w-full h-full rounded-full object-cover" [src]="chat.contact.avatar"
+								alt="Contact avatar" />
+						</ng-container>
+						<ng-container *ngIf="!chat.contact.avatar">
+							<div
+								class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+								{{chat.contact.name.charAt(0)}}
+							</div>
+						</ng-container>
+					</div>
+					<div class="ml-4 text-lg font-medium leading-5 truncate">{{chat.contact.name}}</div>
+					<button class="ml-auto mr-4" mat-icon-button>
+						<mat-icon [svgIcon]="'heroicons_outline:x'"></mat-icon>
+					</button>
+				</div>
+			</ng-container>
+		</div>
+
+		<!-- Content -->
+		<div class="flex flex-auto border-t overflow-hidden">
+
+			<!-- Chat list -->
+			<div class="flex-0 w-16 h-full overflow-y-auto overscroll-y-contain sm:overflow-hidden sm:overscroll-auto"
+				fuseScrollbar [fuseScrollbarOptions]="{wheelPropagation: false}">
+				<div class="flex-auto divide-y">
+					<ng-container *ngFor="let contact of dataSource.connect() | async">
+						<div class="flex items-center py-3 px-4 cursor-pointer border-transparent"
+							[ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedChat || selectedChat.contactId !== contact.contactId,
+                                        'bg-primary-50 dark:bg-hover': selectedChat && selectedChat.contactId === contact.contactId}" (click)="selectChat(contact.contactId)">
+							<div class="relative flex flex-0 items-center justify-center w-8 h-8">
+								<ng-container *ngIf="contact.presenceImageUrl">
+									<!-- <div
+                                        class="absolute bottom-0 right-0 flex-0 w-2 h-2 -ml-0.5 rounded-full ring-2 ring-bg-card dark:ring-gray-900 bg-primary dark:bg-primary-500 text-on-primary"
+                                        [class.ring-primary-50]="selectedChat && selectedChat.contactId === contact.contactId"></div> -->
+									<img class="absolute bottom-0 right-0 flex-0 w-2 h-2 -ml-0.5 rounded-full ring-2 ring-bg-card dark:ring-gray-900 bg-primary dark:bg-primary-500 text-on-primary"
+										[src]="contact.presenceImageUrl" />
+								</ng-container>
+								<ng-container *ngIf="contact.imageURL">
+									<img class="w-full h-full rounded-full object-cover" [src]="contact.imageURL"
+										alt="Contact avatar" />
+								</ng-container>
+								<ng-container *ngIf="!contact.imageURL">
+									<div
+										class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+										{{contact.fullName.charAt(0)}}
+									</div>
+								</ng-container>
+							</div>
+						</div>
+
+					</ng-container>
+				</div>
+			</div>
+
+			<!-- Conversation -->
+			<div class="flex flex-col flex-auto border-l overflow-hidden dark:bg-transparent">
+				<div class="flex flex-col-reverse overflow-y-auto overscroll-y-contain">
+					<div class="flex flex-col flex-auto shrink divide-y">
+						<ng-container *ngFor="let contact of dataSource.connect() | async">
+							<div class="flex py-3 px-4">
+								<div class="flex-1 leading-8 h-8">
+									{{contact.fullName}}
+								</div>
+								<div class="flex items-center h-8">
+
+									<button mat-icon-button color="primary"
+										(click)="redirectToMessaging(contact)">
+										<mat-icon class="mat-18">message</mat-icon>
+									</button> 
+									
+									<button mat-icon-button color="primary"
+										(click)="redirectToVideo(contact)">
+										<mat-icon class="mat-18">videocam</mat-icon>
+									</button>
+
+									<button mat-icon-button color="primary" (click)="redirectToDetails(contact)">
+										<mat-icon class="mat-18">reorder</mat-icon>
+									</button>
+
+									<button mat-icon-button color="warn" (click)="delete(contact)">
+										<mat-icon class="mat-18">delete</mat-icon>
+									</button>
+								</div>
+							</div>
+
+						</ng-container>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

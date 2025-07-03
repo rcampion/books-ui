@@ -10,28 +10,28 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
-//import { AppService } from './zdslogic-base/core/services/app.service';
-//import { DataSharingService } from './zdslogic-base/core/services/datasharing.service';
-//import { User } from './zdslogic-base/core/models/user.model';
-import { AngularLogService } from './zdslogic-base/core/services/angular-log.service';
+//import { AppService } from './zdslogic-ui-base/core/services/app.service';
+//import { DataSharingService } from './zdslogic-ui-base/core/services/datasharing.service';
+//import { User } from './zdslogic-ui-base/core/models/user.model';
+import { AngularLogService } from './zdslogic-ui-base/core/services/angular-log.service';
 
-//import { SocketClientService } from './zdslogic-base/core/services/socket-client.service';
-//import { SocketClientEightService } from './zdslogic-base/core/services/socket-client-eight.service';
-//import { WebSocketAppLogsService } from './zdslogic-base/core/services/websocket-applogs.service';
-//import { SocketClientMessageService } from './zdslogic-base/core/services/socket-client-message.service';
-//import { WebSocketMessageService } from './zdslogic-base/core/services/websocket-message.service';
+//import { SocketClientService } from './zdslogic-ui-base/core/services/socket-client.service';
+//import { SocketClientEightService } from './zdslogic-ui-base/core/services/socket-client-eight.service';
+//import { WebSocketAppLogsService } from './zdslogic-ui-base/core/services/websocket-applogs.service';
+//import { SocketClientMessageService } from './zdslogic-ui-base/core/services/socket-client-message.service';
+//import { WebSocketMessageService } from './zdslogic-ui-base/core/services/websocket-message.service';
 
-//import { AlertService } from './zdslogic-base/alert/alert.service';
-//import { AppMessage } from './zdslogic-base/core/models/appmessage.model';
+//import { AlertService } from './zdslogic-ui-base/alert/alert.service';
+//import { AppMessage } from './zdslogic-ui-base/core/models/appmessage.model';
 
-//import { MessageDialogComponent } from './zdslogic-base/shared/dialogs/message-dialog/message-dialog.component';
-//import { MessageService } from './zdslogic-base/core/services/message.service';
+//import { MessageDialogComponent } from './zdslogic-ui-base/shared/dialogs/message-dialog/message-dialog.component';
+//import { MessageService } from './zdslogic-ui-base/core/services/message.service';
 
-//import { UsersService } from './zdslogic-base/core/services/users.service';
-//import { AuthenticationService } from './zdslogic-base/core/services/authentication.service';
+//import { UsersService } from './zdslogic-ui-base/core/services/users.service';
+//import { AuthenticationService } from './zdslogic-ui-base/core/services/authentication.service';
 
-//import { ResizeService } from './zdslogic-base/core/services/resize.service';
-//import { SCREEN_SIZE } from './zdslogic-base/core/services/screen-size.enum';
+//import { ResizeService } from './zdslogic-ui-base/core/services/resize.service';
+//import { SCREEN_SIZE } from './zdslogic-ui-base/core/services/screen-size.enum';
 
 //import { VideoJitsiCallDialogComponent } from './plugins/collaboration/dialog/video-jitsi-call-dialog.component';
 
@@ -159,10 +159,18 @@ export class AppComponent {
 		return false;
 	}
 
+	redirectToBooks(): any {
+		this.isPortal = true;
+		//this.dataSharingService.isPortal.next(this.isPortal);
+		const url = '/books';
+		this.router.navigate([url]);
+		return false;
+	}
+
 	redirectToProfile(): any {
 		this.isPortal = true;
 		//this.dataSharingService.isPortal.next(this.isPortal);
-		const url = '/profiles/richard.campion';
+		const url = '/profiles/karl.richards';
 		this.router.navigate([url]);
 		return false;
 	}

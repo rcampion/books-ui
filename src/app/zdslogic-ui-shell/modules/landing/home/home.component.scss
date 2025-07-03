@@ -1,0 +1,66 @@
+.home-image-size {
+	width:400px;
+	height:450px;
+}
+
+.landing {
+	section {
+		height: calc(100vh - 4rem);
+	}
+
+	.hero {
+		background-color: #3F51B5;
+
+		h1 {
+			line-height: 3rem;
+		}
+
+		button {
+			background-color: #FEA202;
+
+			&:hover {
+				background-color: #c27c03;
+			}
+		}
+	}
+
+	.about {
+		h2 {
+			line-height: 3rem;
+			color: #3F51B5;
+
+			span {
+				color: #FEA202;
+			}
+		}
+
+		button {
+			background-color: #3F51B5;
+
+			&:hover {
+				background-color: #283371;
+			}
+		}
+	}
+
+	.location-map-section {
+		position: relative;
+	
+		top: 50px;
+		width: 100%;
+  		align-items: center;
+		justify-content: center;
+
+	}
+
+	.location-map-header {
+		position: relative;
+		padding: 10px;
+		top: 25px;
+		font-family: Roboto;
+		font-weight: Bold;
+		font-size: 20px;
+		text-align: center;
+
+	}
+}

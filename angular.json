@@ -56,7 +56,7 @@
 						],
 						"stylePreprocessorOptions": {
 							"includePaths": [
-								"src/app/zdslogic-shell/@fuse/styles"
+								"src/app/zdslogic-ui-shell/@fuse/styles"
 							]
 						},
 						"styles": [
@@ -69,10 +69,10 @@
 							"node_modules/jquery-ui-dist/jquery-ui.min.css",
 							"node_modules/font-awesome/css/font-awesome.min.css",
 							"node_modules/jquery.scrollbar/jquery.scrollbar.css",
-							"src/app/zdslogic-shell/@fuse/styles/tailwind.scss",
-							"src/app/zdslogic-shell/@fuse/styles/themes.scss",
+							"src/app/zdslogic-ui-shell/@fuse/styles/tailwind.scss",
+							"src/app/zdslogic-ui-shell/@fuse/styles/themes.scss",
+							"src/app/zdslogic-ui-shell/@fuse/styles/main.scss",
 							"src/styles/vendors.scss",
-							"src/app/zdslogic-shell/@fuse/styles/main.scss",
 							"src/styles/styles.scss",
 							"src/styles/tailwind.scss",
 							"src/assets/common/css/main-unminified.css",
