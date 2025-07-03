@@ -5,8 +5,8 @@ Books UI - An Angular TypeScript Plugin Architecture
 <code>
 <pre>
 ZdsLogic Technologies Books UI
-├── zdslogic-base
-├── zdslogic-plugins
+├── zdslogic-ui-base
+├── zdslogic-ui-plugins
 │   ├── books
 │   │   ├── books-admin
 │   │   │   ├── books-admin-container
@@ -23,14 +23,14 @@ ZdsLogic Technologies Books UI
 │   │   │   ├── services
 │   │   │   │   ├── books.datasource.ts
 │   │   │   │   ├── books.service.ts
-└── zdslogic-shell
+└── zdslogic-ui-shell
 </pre>
 </code>
 
 
 <pre>
 ZdsLogic Technologies Books Server
-├── com.zdslogic.server.books
+├── com.zdslogic.server.plugins.books
 │   ├── domain
 │   │   ├── BookEntity.java
 │   ├── repo
