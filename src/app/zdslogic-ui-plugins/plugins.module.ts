@@ -8,10 +8,13 @@ import { PluginsRoutingModule } from './plugins.routing.module';
 
 import { BooksAdminModule } from './books/books-admin/books-admin.module';
 import { BooksShopSiteModule } from './books/books-shop-site/books-shop-site.module';
+
+import { CollaborationModule } from './collaboration/collaboration.module';
+import { ContactsModule } from './contacts/contacts.module';
 /*
 import { ProfilesModule } from './profiles/profiles.module';
 import { CalendarViewModule } from './calendar/calendar.module';
-import { ContactsModule } from './contacts/contacts.module';
+
 import { DeviceModule } from './device/device.module';
 import { JobsModule } from './jobs/jobs.module';
 import { LogsModule } from './logs/logs.module';
@@ -49,7 +52,8 @@ import { WhoisPricingModule } from './whoispricing/whoispricing.module';
 		BooksShopSiteModule,
 
 		//CalendarViewModule,
-		//ContactsModule,
+		CollaborationModule,
+		ContactsModule,
 		//DeviceModule,
 		//JobsModule,
 		//LogsModule,
