@@ -1,15 +1,15 @@
-# fly.toml app configuration file generated for books-ui-8fz5bw on 2026-05-01T19:39:50Z
+# fly.toml app configuration file generated for books-ui-v2x3-q on 2026-05-01T20:38:52Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'books-ui-8fz5bw'
+app = 'books-ui-v2x3-q'
 primary_region = 'iad'
 
 [build]
 
 [http_service]
-  internal_port = 3000
+  internal_port = 4200
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
