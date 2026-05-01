@@ -33,7 +33,8 @@ import { AngularLogService } from './zdslogic-ui-base/core/services/angular-log.
 //import { ResizeService } from './zdslogic-ui-base/core/services/resize.service';
 //import { SCREEN_SIZE } from './zdslogic-ui-base/core/services/screen-size.enum';
 
-//import { VideoJitsiCallDialogComponent } from './plugins/collaboration/dialog/video-jitsi-call-dialog.component';
+//import { VideoJitsiCallDialogComponent } from './zdslogic-ui-plugins/collaboration/dialog/video-jitsi-call-dialog.component';
+import { VideoJitsiPublicComponent } from './zdslogic-ui-plugins/collaboration/dialog/video-jitsi-public.component';
 
 @Component({
 	selector: 'app-root',
