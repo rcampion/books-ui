@@ -42,7 +42,7 @@ import { SocketClientElizaService } from 'app/zdslogic-ui-base/core/services/soc
 
 import { VideoJitsiStartComponent } from './collaboration-video-start/video-jitsi-start.component';
 import { VideoJitsiEnterComponent } from './collaboration-video-enter/video-jitsi-enter.component';
-//import { VideoJitsiPublicComponent } from './collaboration-video-public/video-jitsi-public.component';
+import { VideoJitsiPublicComponent } from './collaboration-video-public/video-jitsi-public.component';
 import { VideoJitsiCallDialogComponent } from './dialog/video-jitsi-call-dialog.component';
 import { FuseNavigationModule } from 'app/zdslogic-ui-shell/@fuse/components/navigation';
 
@@ -88,7 +88,7 @@ import { FuseNavigationModule } from 'app/zdslogic-ui-shell/@fuse/components/nav
 		VideoJitsiStartComponent,
 		VideoJitsiEnterComponent,
 		VideoJitsiCallDialogComponent,
-		//VideoJitsiPublicComponent
+		VideoJitsiPublicComponent
 	],	providers: [
 
 		SocketClientTwoService,
