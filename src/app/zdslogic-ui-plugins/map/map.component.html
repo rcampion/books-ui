@@ -1,0 +1,73 @@
+<div class="flex flex-col w-full">
+  <!--  <h3>Current definition</h3>
+
+<dl>
+  <dt>name</dt>
+  <dd>
+    use the <code>name</code>, if different from the computed
+    <code>cityName</code>
+  </dd>
+  <dt>cityName</dt>
+  <dd>
+    <code>locality.long_name</code> if exists, otherwise
+    <code>administrative_area_level_3.short_name</code>
+  </dd>
+  <dt>stateCode</dt>
+  <dd>
+    <code>administrative_area_level_1.short_name</code> if different from
+    <code>administrative_area_level_1.long_name</code>, otherwise not set
+  </dd>
+  <dt>countryName</dt>
+  <dd>
+    <code>country.long_name</code>
+  </dd>
+  <dt>countryCode</dt>
+  <dd>
+    <code>country.short_name</code>
+  </dd>
+</dl>
+
+<h3>Playground</h3>
+-->
+  <div>
+    <input placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+      class="form-control" #search />
+  </div>
+
+  <div #mapContainer id="map"></div>
+
+  <!--  
+<div *ngFor="let entry of entries">
+  <table *ngIf="entry.place" [style.borderColor]="entry.color">
+    <thead>
+      <tr>
+        <th>
+          <button (click)="remove(entry)">remove</button>
+        </th>
+        <th>short_name</th>
+        <th>types</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2">{{ entry.place.name }}</td>
+        <td>name</td>
+      </tr>
+      <tr *ngFor="let component of entry.place.address_components">
+        <td>{{ component.long_name }}</td>
+        <td>{{ component.short_name }}</td>
+        <td>{{ component.types }}</td>
+      </tr>
+      <tr>
+        <th colspan="2">⇒ Parsed as</th>
+        <th>field</th>
+      </tr>
+      <tr *ngFor="let locationField of locationFields">
+        <td colspan="2">{{ entry.location[locationField] }}</td>
+        <td>{{ locationField }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+-->
+</div>

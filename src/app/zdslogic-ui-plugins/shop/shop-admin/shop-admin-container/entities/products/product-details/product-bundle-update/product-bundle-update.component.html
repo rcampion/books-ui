@@ -1,0 +1,57 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Update ProductBundle</mat-card-title>
+    <form [formGroup]="productBundleForm" autocomplete="off" novalidate (ngSubmit)="updateProductBundle(productBundleForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+      
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="ProductId" formControlName="productId" id="productId">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('productId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>       
+        <mat-form-field>
+          <input matInput type="text" placeholder="AutoBundle" formControlName="autoBundle" id="autoBundle">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('autoBundle', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>       
+        <mat-form-field>
+          <input matInput type="text" placeholder="Priority" formControlName="bundlePriority" id="bundlePriority">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('bundlePriority', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="BundlePromotable" formControlName="bundlePromotable" id="bundlePromotable">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('bundlePromotable', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="ItemsPromotable" formControlName="itemsPromotable" id="itemsPromotable">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('itemsPromotable', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="PricingModel" formControlName="pricingModel" id="pricingModel">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('pricingModel', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field> 
+                                   
+      </mat-card-content>
+      
+      <mat-card-actions align="start">
+        <button mat-raised-button color="primary" [disabled]="!productBundleForm.valid">Update</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+      
+    </form>
+    
+  </mat-card>
+  
+</section>
+

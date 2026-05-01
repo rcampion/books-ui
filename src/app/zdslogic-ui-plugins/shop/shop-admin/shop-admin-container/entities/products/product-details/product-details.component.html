@@ -1,0 +1,26 @@
+<app-product-data [product]='product' (selectEmitt)='showAccounts = $event'></app-product-data>
+<mat-tab-group>
+
+    <mat-tab label="Skus">
+		<app-product-sku-list> </app-product-sku-list>
+    </mat-tab>
+    
+    <mat-tab label="Attributes">
+		<app-product-attribute-list> </app-product-attribute-list>
+    </mat-tab>
+
+    <mat-tab label="Bundle">
+		<app-product-bundle-list> </app-product-bundle-list>
+    </mat-tab>
+<!--
+    <mat-tab label="Address">
+		<app-contact-address-list> </app-contact-address-list>
+    </mat-tab>
+    <mat-tab label="Website">
+		<app-contact-website-list> </app-contact-website-list>
+    </mat-tab>
+    <mat-tab label="Notes">
+		<app-contact-note-list> </app-contact-note-list>
+    </mat-tab> 
+-->    
+</mat-tab-group>

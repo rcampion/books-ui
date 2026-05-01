@@ -80,23 +80,24 @@ export class ErrorHandlerService {
 		}
 
 		this.dialogConfig.data = { 'errorMessage': this.errorMessage };
-		this._dialog.open(ErrorDialogComponent, this.dialogConfig);
+		//this._dialog.open(ErrorDialogComponent, this.dialogConfig);
 	}
 
 	private handleOtherError(error: HttpErrorResponse): any {
 		this.createErrorMessage(error);
 		this.dialogConfig.data = { 'errorMessage': this.errorMessage };
-		this._dialog.open(ErrorDialogComponent, this.dialogConfig);
+		//this._dialog.open(ErrorDialogComponent, this.dialogConfig);
 	}
 
 	private handleTextError(error: HttpErrorResponse): any {
 		this.errorMessage = error.error;
 		this.dialogConfig.data = { 'errorMessage': this.errorMessage };
-		this._dialog.open(ErrorDialogComponent, this.dialogConfig);
+/*		this._dialog.open(ErrorDialogComponent, this.dialogConfig);
 		if ((this.errorMessage === 'No jwt cookie found') ||
 			(this.errorMessage === 'The Json Web Token is expired')) {
 			this._router.navigate(['/about']);
 		}
+*/
 	}
 
 	private createErrorMessage(error: HttpErrorResponse): any {

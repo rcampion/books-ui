@@ -1,0 +1,115 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+	<mat-card fxFlex="100%" fxFlex.xs="100%"> 
+	<mat-card-title>Book Details</mat-card-title>
+	<form novalidate>
+		<p-panel> 
+		<mat-card-content>
+
+		<div fxLayout="column wrap" fxLayoutAlign="center start">
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.bookId}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book ISBN:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.isbn13}}</div>
+				</div>
+								
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Title:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.title}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Language Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.languageId}}</div>
+				</div>
+								
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Author:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.author}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Author Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.authorId}}</div>
+				</div>
+								
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Category:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.category}}</div>
+				</div>			
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Publication Date:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.publicationDate}}</div>
+				</div>	
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Publisher Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.publisherId}}</div>
+				</div>	
+								
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Price:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.price}}</div>
+				</div>
+									
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Quantity:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.qty}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Book Image:</strong>
+					</div>
+					&nbsp;
+					<div>{{book?.image}}</div>
+				</div>						
+			</div>
+			</mat-card-content> 
+			
+			<mat-card-actions>
+				<button mat-raised-button color="primary" (click)="onCancel()">OK</button>
+			</mat-card-actions> 
+			
+		</p-panel>
+	</form>
+	</mat-card>
+</section>

@@ -8,11 +8,11 @@ import { ShopCartComponent } from './../books-shop-cart/shop-cart.component';
 const routes: Routes = [
 	{
 		path: '',
-		component: ShopBooksHomeComponent
+		component: ShopBooksListComponent
 	},
 	{
 		path: 'home',
-		component: ShopBooksHomeComponent
+		component: ShopBooksListComponent
 	},
 	{
 		path: 'books',

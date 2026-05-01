@@ -1,0 +1,287 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+	<mat-card fxFlex="100%" fxFlex.xs="100%"> 
+	<mat-card-title>Sku Details</mat-card-title>
+	<form novalidate>
+		<p-panel> 
+		<mat-card-content>
+
+		<div fxLayout="column wrap" fxLayoutAlign="center start">
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Sku Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.skuId}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>ActiveEndDate:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.activeEndDate | date: "short"}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>ActiveStartDate:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.activeStartDate | date: "short"}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>AddlProductId:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.addlProductId}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>AvailableFlag:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.availableFlag}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>ContainerShape:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.containerShape}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>ContainerSize:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.containerSize}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Cost:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.cost}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>CurrencyCode:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.currencyCode}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DefaultProductId:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.defaultProductId}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Depth:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.depth}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Description:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.description}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DimensionUnitOfMeasure:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.dimensionUnitOfMeasure}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DiscountableFlag:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.discountableFlag}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DisplayTemplate:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.displayTemplate}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>ExternalId:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.externalId}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>FulfillmentType:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.fulfillmentType}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Girth:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.girth}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Height:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.height}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>InventoryType:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.inventoryType}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>IsMachineSortable:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.isMachineSortable}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>LongDescription:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.longDescription}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Name:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.name}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>QuantityAvailable:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.quantityAvailable}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>RetailPrice:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.retailPrice}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>SalePrice:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.salePrice}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>TaxCode:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.taxCode}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>TaxableFlag:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.taxableFlag}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>UPC:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.upc}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>UrlKey:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.urlKey}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Weight:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.weight}}</div>
+				</div>
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>WeightUnitOfMeasure:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.weightUnitOfMeasure}}</div>
+				</div>	
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Width:</strong>
+					</div>
+					&nbsp;
+					<div>{{sku?.width}}</div>
+				</div>
+						
+			</div>
+			</mat-card-content> 
+			
+			<mat-card-actions>
+				<button mat-raised-button color="primary" (click)="onCancel()">OK</button>
+			</mat-card-actions> 
+			
+		</p-panel>
+	</form>
+	</mat-card>
+</section>
+
+<app-product-sku-addl-list></app-product-sku-addl-list>
+

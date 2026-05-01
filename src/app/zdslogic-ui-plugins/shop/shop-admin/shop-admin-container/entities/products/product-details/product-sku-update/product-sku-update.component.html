@@ -1,0 +1,223 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Update Sku</mat-card-title>
+    <form [formGroup]="skuForm" autocomplete="off" novalidate (ngSubmit)="updateSku(skuForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+          
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Sku Id" formControlName="skuId" id="skuId">
+          <mat-error *ngIf="hasError('skuId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>       
+ <!--
+        <mat-form-field>
+          <input matInput type="text" placeholder="activeEndDate" formControlName="activeEndDate" id="activeEndDate">
+          <mat-error *ngIf="hasError('activeEndDate', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>
+ -->
+ <mat-form-field appearance="fill">
+    <input #dpEndDate
+        matInput
+        (dateInput)="setEndDate(dpEndDate.value)" 
+        (dateChange)="setEndDate(dpEndDate.value)"
+        [ngxMatDatetimePicker]="picker1" 
+        placeholder="End Date and Time" 
+        formControlName="activeEndDate" id="activeEndDate">   
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker1 [enableMeridian]="true" ></ngx-mat-datetime-picker>
+</mat-form-field>
+ 
+ <!--     
+        <mat-form-field>
+          <input matInput type="text" placeholder="activeStartDate" formControlName="activeStartDate" id="activeStartDate">
+          <mat-error *ngIf="hasError('activeStartDate', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+-->        
+        
+<mat-form-field appearance="fill">
+    <input #dpStartDate
+        matInput
+        (dateInput)="setStartDate(dpStartDate.value)" 
+        (dateChange)="setStartDate(dpStartDate.value)"
+        [ngxMatDatetimePicker]="picker2" 
+        placeholder="Start Date and Time" 
+        formControlName="activeStartDate" id="activeStartDate">   
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker2 [enableMeridian]="true" ></ngx-mat-datetime-picker>
+</mat-form-field>
+ <br/>       
+        <mat-form-field>
+          <input matInput type="text" placeholder="addlProductId" formControlName="addlProductId" id="addlProductId">
+          <mat-error *ngIf="hasError('addlProductId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>       
+        <mat-form-field>
+          <input matInput type="text" placeholder="availableFlag" formControlName="availableFlag" id="availableFlag">
+          <mat-error *ngIf="hasError('availableFlag', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="containerShape" formControlName="containerShape" id="containerShape">
+          <mat-error *ngIf="hasError('containerShape', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="containerSize" formControlName="containerSize" id="containerSize">
+         <mat-error *ngIf="hasError('containerSize', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="cost" formControlName="cost" id="cost">
+          <mat-error *ngIf="hasError('cost', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="currencyCode" formControlName="currencyCode" id="currencyCode">
+          <mat-error *ngIf="hasError('currencyCode', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="defaultProductId" formControlName="defaultProductId" id="defaultProductId">
+          <mat-error *ngIf="hasError('defaultProductId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="depth" formControlName="depth" id="depth">
+          <mat-error *ngIf="hasError('depth', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="description" formControlName="description" id="description">
+          <mat-error *ngIf="hasError('description', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="dimensionUnitOfMeasure" formControlName="dimensionUnitOfMeasure" id="dimensionUnitOfMeasure">
+          <mat-error *ngIf="hasError('dimensionUnitOfMeasure', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="discountableFlag" formControlName="discountableFlag" id="discountableFlag">
+          <mat-error *ngIf="hasError('discountableFlag', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="displayTemplate" formControlName="displayTemplate" id="displayTemplate">
+          <mat-error *ngIf="hasError('displayTemplate', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="externalId" formControlName="externalId" id="externalId">
+          <mat-error *ngIf="hasError('externalId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="fulfillmentType" formControlName="fulfillmentType" id="fulfillmentType">
+          <mat-error *ngIf="hasError('fulfillmentType', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+        
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="girth" formControlName="girth" id="girth">
+          <mat-error *ngIf="hasError('girth', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+        
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="height" formControlName="height" id="height">
+          <mat-error *ngIf="hasError('height', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="inventoryType" formControlName="inventoryType" id="inventoryType">
+          <mat-error *ngIf="hasError('inventoryType', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="isMachineSortable" formControlName="isMachineSortable" id="isMachineSortable">
+          <mat-error *ngIf="hasError('isMachineSortable', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+        
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="longDescription" formControlName="longDescription" id="longDescription">
+          <mat-error *ngIf="hasError('longDescription', 'maxlength')">You have more than 240 characters</mat-error>
+        </mat-form-field>
+        
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="name" formControlName="name" id="name">
+          <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+        
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="quantityAvailable" formControlName="quantityAvailable" id="quantityAvailable">
+          <mat-error *ngIf="hasError('quantityAvailable', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+
+
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="retailPrice" formControlName="retailPrice" id="retailPrice">
+          <mat-error *ngIf="hasError('retailPrice', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="salePrice" formControlName="salePrice" id="salePrice">
+          <mat-error *ngIf="hasError('salePrice', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="taxCode" formControlName="taxCode" id="taxCode">
+          <mat-error *ngIf="hasError('taxCode', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="taxableFlag" formControlName="taxableFlag" id="taxableFlag">
+          <mat-error *ngIf="hasError('taxableFlag', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="upc" formControlName="upc" id="upc">
+          <mat-error *ngIf="hasError('upc', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="urlKey" formControlName="urlKey" id="urlKey">
+          <mat-error *ngIf="hasError('urlKey', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="weight" formControlName="weight" id="weight">
+          <mat-error *ngIf="hasError('weight', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="weightUnitOfMeasure" formControlName="weightUnitOfMeasure" id="weightUnitOfMeasure">
+          <mat-error *ngIf="hasError('weightUnitOfMeasure', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>                
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="width" formControlName="width" id="width">
+          <mat-error *ngIf="hasError('width', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>                 
+
+      </mat-card-content>
+      
+      <mat-card-actions align="start">
+        <button mat-raised-button color="primary" [disabled]="!skuForm.valid">Update</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+      
+    </form>
+    
+  </mat-card>
+  
+</section>
+

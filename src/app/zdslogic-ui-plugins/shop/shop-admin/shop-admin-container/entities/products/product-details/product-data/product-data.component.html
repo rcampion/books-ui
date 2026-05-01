@@ -1,0 +1,140 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+	<mat-card fxFlex="100%" fxFlex.xs="100%"> 
+	<mat-card-title>Product Details</mat-card-title>
+	<form novalidate>
+		<p-panel> 
+		<mat-card-content>
+
+		<div fxLayout="column wrap" fxLayoutAlign="center start">
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Product Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.productId}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Archived:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.archived}}</div>
+				</div>
+	
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>CanSellWithoutOptions:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.canSellWithoutOptions}}</div>
+				</div>
+	
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>CanonicalUrl:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.canonicalUrl}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DefaultCategoryId:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.defaultCategoryId}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DefaultSkuId:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.defaultSkuId}}</div>
+				</div>
+									
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>DisplayTemplate:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.displayTemplate}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>IsFeaturedProduct:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.isFeaturedProduct}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Manufacture:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.manufacture}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>MetaDesc:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.metaDesc}}</div>
+				</div>
+	
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>MetaTitle:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.metaTitle}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>Model:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.model}}</div>
+				</div>
+	
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>OverrideGeneratedUrl:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.overrideGeneratedUrl}}</div>
+				</div>
+	
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>URl:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.url}}</div>
+				</div>
+				
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>UrlKey:</strong>
+					</div>
+					&nbsp;
+					<div>{{product?.urlKey}}</div>
+				</div>
+						
+			</div>
+			</mat-card-content> 
+			
+			<mat-card-actions>
+				<button mat-raised-button color="primary" (click)="onCancel()">OK</button>
+			</mat-card-actions> 
+			
+		</p-panel>
+	</form>
+	</mat-card>
+</section>

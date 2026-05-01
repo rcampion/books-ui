@@ -1,0 +1,95 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="90%" fxFlex.xs="100%">
+    <mat-card-title>Create a new Product</mat-card-title>
+    <form [formGroup]="productForm" autocomplete="off" novalidate (ngSubmit)="createProduct(productForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Archived" formControlName="archived" id="archived">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('archived', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>       
+        <mat-form-field>
+          <input matInput type="text" placeholder="CanSellWithoutOptions" formControlName="canSellWithoutOptions" id="canSellWithoutOptions">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('canSellWithoutOptions', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>       
+        <mat-form-field>
+          <input matInput type="text" placeholder="CanonicalUrl" formControlName="canonicalUrl" id="canonicalUrl">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('canSellWithoutOptions', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+ <br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="DisplayTemplate" formControlName="displayTemplate" id="displayTemplate">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('displayTemplate', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="IsFeaturedProduct" formControlName="isFeaturedProduct" id="isFeaturedProduct">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('isFeaturedProduct', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Manufacture" formControlName="manufacture" id="manufacture">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('manufacture', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="MetaDesc" formControlName="metaDesc" id="metaDesc">
+          <mat-error *ngIf="hasError('metaDesc', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="MetaTitle" formControlName="metaTitle" id="metaTitle">
+          <mat-error *ngIf="hasError('metaTitle', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Model" formControlName="model" id="model">
+          <mat-error *ngIf="hasError('model', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="OverrideGeneratedUrl" formControlName="overrideGeneratedUrl" id="overrideGeneratedUrl">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('overrideGeneratedUrl', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Url" formControlName="url" id="url">
+          <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('url', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="UrlKey" formControlName="urlKey" id="urlKey">
+          <mat-error *ngIf="hasError('urlKey', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Category" formControlName="defaultCategoryId" id="defaultCategoryId">
+          <mat-error *ngIf="hasError('defaultCategoryId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+<br/>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Sku" formControlName="defaultSkuId" id="defaultSkuId">
+          <mat-error *ngIf="hasError('defaultSkuId', 'maxlength')">You have more than 120 characters</mat-error>
+        </mat-form-field>
+                            
+      </mat-card-content>
+      
+      <mat-card-actions align="start">
+        <button mat-raised-button color="primary" [disabled]="!productForm.valid">Create</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>

@@ -1,0 +1,109 @@
+<div class="mx-auto flex flex-col min-w-full">
+	<div class="flex flex-col p-6 sm:p-10">
+		<form [formGroup]="bookForm" autocomplete="off" novalidate (ngSubmit)="updateBook(bookForm.value)">
+			<div class="flex flex-col flex-auto w-full max-w-xs sm:max-w-2xl mx-auto">
+
+				<mat-card-title class="mb-4 text-center">Update Book</mat-card-title>
+
+				<mat-card-content>
+
+					<div fxLayout="column wrap">
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Title" formControlName="title" id="title">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('title', 'required')">Title is required</mat-error>
+							<mat-error *ngIf="hasError('title', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="ISBN" formControlName="isbn13" id="isbn13">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('isbn13', 'required')">ISBN is required</mat-error>
+							<mat-error *ngIf="hasError('isbn13', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Language Id" formControlName="languageId"
+								id="languageId">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('languageId', 'required')">Language Id is required</mat-error>
+							<mat-error *ngIf="hasError('languageId', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Author" formControlName="author" id="author">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('author', 'required')">Author is required</mat-error>
+							<mat-error *ngIf="hasError('author', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Author Id" formControlName="authorId"
+								id="authorId">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('authorId', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Category" formControlName="category" id="category">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('category', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Publication Date" formControlName="publicationDate"
+								id="publicationDate">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('publicationDate', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Publisher Id" formControlName="publisherId"
+								id="publisherId">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('publisherId', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Price" formControlName="price" id="price">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('price', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Qty" formControlName="qty" id="qty">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('qty', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<input matInput type="text" placeholder="Image" formControlName="image" id="image">
+							<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+							<mat-error *ngIf="hasError('image', 'maxlength')">You have more than 60
+								characters</mat-error>
+						</mat-form-field>
+
+					</div>
+
+				</mat-card-content>
+
+				<mat-card-actions align="start">
+					<button mat-raised-button color="primary" [disabled]="!bookForm.valid">Update</button>
+					<button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+				</mat-card-actions>
+
+			</div>
+		</form>
+	</div>
+</div>

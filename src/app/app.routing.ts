@@ -67,60 +67,64 @@ export const appRoutes: Route[] = [
 			},
 			{
 				path: 'profiles',
-				loadChildren: () => import('./plugins/profiles/profiles.module').then(m => m.ProfilesModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/profiles/profiles.module').then(m => m.ProfilesModule)
 			},
 			{
 				path: 'jobs',
-				loadChildren: () => import('./plugins/jobs/jobs.module').then(m => m.JobsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/jobs/jobs.module').then(m => m.JobsModule)
 			},
 			{
 				path: 'resumes',
-				loadChildren: () => import('./plugins/resumes/resumes.module').then(m => m.ResumesModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/resumes/resumes.module').then(m => m.ResumesModule)
 			},
 			{
 				path: 'teams/about',
 				component: TeamsAboutComponent
 			},
+*/
 			{
 				path: 'shop',
-				loadChildren: () => import('./plugins/shop/shop-site/shop-site.module').then(m => m.ShopSiteModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/shop/shop-site/shop-site.module').then(m => m.ShopSiteModule)
 			},
+/*
 			{
 				path: 'topics',
-				loadChildren: () => import('./plugins/wiki/wiki.module').then(m => m.WikiModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/wiki/wiki.module').then(m => m.WikiModule)
 			},
 			{
 				path: 'projects',
-				loadChildren: () => import('./plugins/projects/projects.module').then(m => m.ProjectsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/projects/projects.module').then(m => m.ProjectsModule)
 			},
 			{
 				path: 'my-emails',
-				loadChildren: () => import('./plugins/emails/my-emails/my-emails.module').then(m => m.MyEMailsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/emails/my-emails/my-emails.module').then(m => m.MyEMailsModule)
 			},
+*/
 			{
 				path: 'map',
-				loadChildren: () => import('./plugins/map/map.module').then(m => m.MapModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/map/map.module').then(m => m.MapModule)
 			},
+/*
 			{
 				path: 'logs',
-				loadChildren: () => import('./plugins/logs/logs.module').then(m => m.LogsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/logs/logs.module').then(m => m.LogsModule)
 			},
 			{
 				path: 'whois',
-				loadChildren: () => import('./plugins/whois/whois.module').then(m => m.WhoisModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/whois/whois.module').then(m => m.WhoisModule)
 			},
 			{
 				path: 'weather',
-				loadChildren: () => import('./plugins/weather/weather.module').then(m => m.WeatherModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/weather/weather.module').then(m => m.WeatherModule)
 			},
 			{
 				path: 'visualizations',
-				loadChildren: () => import('./plugins/visualizations/visualizations.module').then(m => m.VisualizationsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/visualizations/visualizations.module').then(m => m.VisualizationsModule)
 			},
 
 			{
 				path: 'contact',
-				loadChildren: () => import('./plugins/collaboration/collaboration.module').then(m => m.CollaborationModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/collaboration/collaboration.module').then(m => m.CollaborationModule)
 			},
 
 			{ path: 'meet', component: VideoJitsiPublicComponent },
@@ -150,31 +154,31 @@ export const appRoutes: Route[] = [
 			{
 				path: 'contacts',
 				component: ContactsLayoutComponent,
-				loadChildren: () => import('./plugins/contacts/routing/contacts-routing.module').then(m => m.ContactsRoutingModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/contacts/routing/contacts-routing.module').then(m => m.ContactsRoutingModule)
 			},
 			{
 				path: 'teams',
-				loadChildren: () => import('./plugins/teams/teams.module').then(m => m.TeamsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/teams/teams.module').then(m => m.TeamsModule)
 			},
 
 			{
 				path: 'calendar',
-				loadChildren: () => import('./plugins/calendar/calendar.module').then(m => m.CalendarViewModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/calendar/calendar.module').then(m => m.CalendarViewModule)
 			},
 
 			{
 				path: 'apikeys',
-				loadChildren: () => import('./plugins/apikeys/apikey.module').then(m => m.ApiKeyModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/apikeys/apikey.module').then(m => m.ApiKeyModule)
 			},
 
 			{
 				path: 'inventory',
-				loadChildren: () => import('./plugins/inventory/inventory.module').then(m => m.InventoryModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/inventory/inventory.module').then(m => m.InventoryModule)
 			},
 
 			{
 				path: 'subscriptions',
-				loadChildren: () => import('./plugins/subscriptions/subscriptions.module').then(m => m.SubscriptionsModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/subscriptions/subscriptions.module').then(m => m.SubscriptionsModule)
 			},
 
 			{
@@ -184,15 +188,15 @@ export const appRoutes: Route[] = [
 
 			{
 				path: 'my-files',
-				loadChildren: () => import('./plugins/system/my-files/myfiles.module').then(m => m.MyFilesModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/system/my-files/myfiles.module').then(m => m.MyFilesModule)
 			},
 			{
 				path: 'user-files',
-				loadChildren: () => import('./plugins/system/user-files/files.module').then(m => m.FilesModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/system/user-files/files.module').then(m => m.FilesModule)
 			},
 			{
 				path: 'system',
-				loadChildren: () => import('./plugins/system/system-routing/system-routing.module').then(m => m.SystemRoutingModule)
+				loadChildren: () => import('./zdslogic-ui-plugins/system/system-routing/system-routing.module').then(m => m.SystemRoutingModule)
 			},
 */
 		]

@@ -50,6 +50,25 @@ import { LayoutModule } from 'app/zdslogic-ui-shell/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
 
+
+import { AccountEventsService } from './zdslogic-ui-base/core/services/account.events.service';
+import { AlertService } from './zdslogic-ui-base/alert/alert.service';
+
+
+//import { ApiService } from './zdslogic-ui-base/core/services/api.service";
+//import { AuthorizationRouteGuard } from './zdslogic-ui-base/core/services/
+//import { DataSharingService } from './zdslogic-ui-base/core/services/
+import { ErrorService } from './zdslogic-ui-base/core/services/error.service';
+import { JwtService } from './zdslogic-ui-base/core/services/jwt.service';
+//import { LoginRouteGuard } from './zdslogic-ui-base/core/services/
+//import { MapApiService } from './zdslogic-ui-base/core/services/
+import { MyAccountService } from './zdslogic-ui-base/core/services/myaccountservice.service';
+//import { RegistrationService } from './zdslogic-ui-base/core/services/
+//import { ResizeService } from './zdslogic-ui-base/core/services/
+//import { SubscriptionRouteGuard } from './zdslogic-ui-base/core/services/
+//import { UsersService } from './zdslogic-ui-base/core/services/
+//import { MyAccountService } from './zdslogic-ui-base/core/services/
+	
 //zdslogic components
 
 //zdslogic directives
@@ -125,17 +144,18 @@ const routerConfig: ExtraOptions = {
 				//window.location.go(currentUrl);
 			}
 		},
-		//AccountEventsService,
+		AccountEventsService,
 		//AlertService,
 		AngularLogService,
 		AngularLogPublishersService,
 		//ApiService,
 		//AuthorizationRouteGuard,
 		//DataSharingService,
-		//ErrorService,
-		//JwtService,
+		ErrorService,
+		JwtService,
 		//LoginRouteGuard,
 		//MapApiService,
+		MyAccountService,
 		//RegistrationService,
 		//ResizeService,
 		//SubscriptionRouteGuard,

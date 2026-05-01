@@ -1,0 +1,28 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+	<mat-card fxFlex="100%" fxFlex.xs="100%"> 
+	<mat-card-title>ProductAttribute Details</mat-card-title>
+	<form novalidate>
+		<p-panel> 
+		<mat-card-content>
+
+		<div fxLayout="column wrap" fxLayoutAlign="center start">
+
+				<div fxLayout="row" fxFlex>
+					<div>
+						<strong>ProductAttribute Id:</strong>
+					</div>
+					&nbsp;
+					<div>{{productAttribute?.productAttributeId}}</div>
+				</div>
+					
+			</div>
+			</mat-card-content> 
+			
+			<mat-card-actions>
+				<button mat-raised-button color="primary" (click)="onCancel()">OK</button>
+			</mat-card-actions> 
+			
+		</p-panel>
+	</form>
+	</mat-card>
+</section>
