@@ -1,0 +1,409 @@
+/*
+table {
+  // width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-right: 0px;
+  margin-left: auto;
+}
+*/
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px !important;
+}
+
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px; 
+  width: 200px;
+  height: 150px;  
+}
+
+/*
+mat-header-cell {
+  display: flex;
+  justify-content: flex-start;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 1px; 
+}
+*/
+
+.mat-table thead, .mat-table tbody, .mat-table tfoot, mat-header-row, mat-row, mat-footer-row, [mat-header-row], [mat-row], [mat-footer-row], .mat-table-sticky {
+    background: inherit;
+  display: table-header-group;
+  vertical-align: left;
+  border-color: inherit;
+}
+
+th.mat-header-cell[_ngcontent-lep-c16]:first-of-type, td.mat-cell[_ngcontent-lep-c16]:first-of-type, td.mat-footer-cell[_ngcontent-lep-c16]:first-of-type {
+    padding-left: 1px;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: left;
+  border-color: inherit;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px !important;
+  //display: flex;
+  //justify-content: flex-start;
+}
+
+
+mat-table {
+  display: block;
+  margin-right: auto;
+}
+
+
+mat-header-row {
+  height:28px;
+  min-height: 28px;
+}
+
+mat-row,
+mat-footer-row {
+  height:28px;
+  min-height: 28px;
+}
+
+mat-row,
+mat-header-row,
+mat-footer-row {
+  display: flex;
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+mat-row::after,
+mat-header-row::after,
+mat-footer-row::after {
+  display: inline-block;
+  min-height: inherit;
+  content: ""
+}
+
+mat-cell:first-of-type,
+mat-header-cell:first-of-type,
+mat-footer-cell:first-of-type {
+  padding-left: 1px;
+}
+
+[dir=rtl] mat-cell:first-of-type:not(:only-of-type),
+[dir=rtl] mat-header-cell:first-of-type:not(:only-of-type),
+[dir=rtl] mat-footer-cell:first-of-type:not(:only-of-type) {
+  padding-left: 0;
+  padding-right: 1px;
+}
+
+mat-cell:last-of-type,
+mat-header-cell:last-of-type,
+mat-footer-cell:last-of-type {
+  padding-right: 1px;
+}
+
+[dir=rtl] mat-cell:last-of-type:not(:only-of-type),
+[dir=rtl] mat-header-cell:last-of-type:not(:only-of-type),
+[dir=rtl] mat-footer-cell:last-of-type:not(:only-of-type) {
+  padding-right: 0;
+  padding-left: 1px;
+}
+
+mat-cell,
+mat-header-cell,
+mat-footer-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: inherit;
+}
+
+table.mat-table {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  border-spacing: 0;
+
+  text-align: left;
+}
+
+tr.mat-header-row {
+  height: 7px;
+}
+
+tr.mat-row,
+tr.mat-footer-row {
+  height: 7px;
+}
+
+th.mat-header-cell {
+  text-align: left;
+}
+
+[dir=rtl] th.mat-header-cell {
+  text-align: right;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 1px;
+}
+
+[dir=rtl] th.mat-header-cell:first-of-type:not(:only-of-type),
+[dir=rtl] td.mat-cell:first-of-type:not(:only-of-type),
+[dir=rtl] td.mat-footer-cell:first-of-type:not(:only-of-type) {
+  padding-left: 0;
+  padding-right: 1px;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding-right: 1px;
+}
+
+[dir=rtl] th.mat-header-cell:last-of-type:not(:only-of-type),
+[dir=rtl] td.mat-cell:last-of-type:not(:only-of-type),
+[dir=rtl] td.mat-footer-cell:last-of-type:not(:only-of-type) {
+  padding-right: 0;
+  padding-left: 1px;
+}
+
+.mat-table-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.nav-link .user-pic {
+    height: 26px;
+    border-radius: 50px;
+    float: left;
+    margin-right: 5px;
+}
+
+.mat-column-presenceImageUrl {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+
+  hyphens: auto;
+  //display: flex;
+  justify-content: flex-start;
+
+  text-align: left;
+}
+
+.mat-column-imageURL {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+
+  hyphens: auto;
+  //display: flex;
+  justify-content: flex-start;
+
+  text-align: left;
+}
+
+.mat-column-fullName {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+/*
+.mat-column-firstName {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-lastName {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+*/
+.mat-column-company {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-title {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-video {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-profile {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-details {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-update {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-delete {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+

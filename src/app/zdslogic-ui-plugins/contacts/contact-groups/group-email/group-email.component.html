@@ -1,0 +1,70 @@
+<div class="mx-auto flex flex-col min-w-full">
+  <div class="flex flex-col p-6 sm:p-10">
+
+    <form [formGroup]="emailForm" autocomplete="off" novalidate (ngSubmit)="sendEMail(emailForm.value)">
+      <div class="flex flex-col flex-auto w-full max-w-xs sm:max-w-2xl mx-auto">
+        <mat-card-title class="mb-4 text-center">Send an EMail to the Group</mat-card-title>
+        <mat-card-content>
+
+          <mat-form-field class="flex flex-col gap-4 mb-4">
+            <input matInput type="text" placeholder="Subject" formControlName="emailSubjectTxt" id="emailSubjectTxt">
+            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          </mat-form-field>
+          <!--          
+              <mat-form-field>
+                <input matInput type="text" placeholder="EMail List" formControlName="emailList" id="emailList">
+                <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+              </mat-form-field>
+              <br/>
+              <mat-form-field>
+                <input matInput type="text" placeholder="First Name" formControlName="emailFirstName" id="emailFirstName">
+                <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+              </mat-form-field>
+              <br/>
+          -->
+          <mat-form-field class="flex flex-col gap-4 mb-4">
+            <input matInput type="text" placeholder="From Address" formControlName="emailFromAddress" id="emailFromAddress">
+            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          </mat-form-field> 
+          <!--
+              <mat-form-field>
+                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" placeholder="Message" formControlName="emailMsgTxt"
+                  id="emailMsgTxt">
+                </textarea>
+              </mat-form-field>
+          -->
+
+          <ckeditor formControlName="emailMsgTxt" [editor]="editor" id="emailMsgTxt" name="emailMsgTxt">
+          </ckeditor>
+
+          <!--      
+              <mat-form-field>        
+                <input matInput type='file' [(ngModel)]="emailFile" name="file" #selectfile formControlName="emailFile">
+              </mat-form-field>       
+
+              <mat-form-field>
+                <input matInput type="file" placeholder="File" #selectfile formControlName="emailFile" id="emailFile">
+              </mat-form-field>
+          -->
+
+          <mat-form-field class="w-50 mt-4">
+            <ngx-mat-file-input [formControl]="fileControl" [multiple]="multiple" [accept]="accept" [color]="color">
+              <!-- <mat-icon ngxMatFileInputIcon>folder</mat-icon> -->
+            </ngx-mat-file-input>
+          </mat-form-field>
+
+          <!--          
+          <re-captcha (resolved)="resolved($event)" siteKey="6LfQ4ckSAAAAAKT1X_YRwWJVyIdEzD-Zad22SaaS"></re-captcha>
+          -->
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" [disabled]="!emailForm.valid">EMail</button>
+          <button class="ml-4" type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+
+      </div>
+    </form>
+
+  </div>
+</div>

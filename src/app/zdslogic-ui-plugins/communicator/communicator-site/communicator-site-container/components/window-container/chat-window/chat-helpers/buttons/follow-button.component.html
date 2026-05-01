@@ -1,0 +1,18 @@
+<div 
+  class="relative w-10 h-10 cursor-pointer" 
+  (click)="toggleFollowing()"
+  [matTooltip]="(profile.following ? 'Unfollow' : 'Follow')+' '+ profile.userName"
+  >
+  <mat-icon 
+        *ngIf="profile.following" 
+        class="icon-size-10 text-blue-400" 
+        [svgIcon]="'heroicons_solid:thumb-up'">      
+  </mat-icon>
+  <mat-icon 
+        *ngIf="!profile.following" 
+        class="icon-size-10 text-gray-400" 
+        [svgIcon]="'heroicons_solid:thumb-down'">      
+  </mat-icon>
+  <span><ng-content></ng-content></span>
+</div>
+

@@ -1,0 +1,30 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Create website</mat-card-title>
+    <form [formGroup]="websiteForm" autocomplete="off" novalidate (ngSubmit)="createWebsite(websiteForm.value)"
+      fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="website" placeholder="Website" formControlName="website" id="website">
+          <mat-hint align="end">Not more then 100 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('website', 'required')">Website is required</mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="min-w-52">
+          <mat-select placeholder="Website Type" formControlName="websiteKind" id="websiteKind">
+            <mat-option *ngFor="let websiteKind of websiteTypes" [value]="websiteKind.value">
+              {{websiteKind.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions align="start">
+        <button mat-raised-button color="primary" [disabled]="!websiteForm.valid">Create</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>

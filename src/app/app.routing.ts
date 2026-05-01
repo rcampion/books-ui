@@ -57,6 +57,10 @@ export const appRoutes: Route[] = [
 				path: 'books-admin',
 				loadChildren: () => import('./zdslogic-ui-plugins/books/books-admin/books-admin.module').then(m => m.BooksAdminModule)
 			},
+			{
+				path: 'contact',
+				loadChildren: () => import('./zdslogic-ui-plugins/collaboration/collaboration.module').then(m => m.CollaborationModule)
+			},
 /*
 			{
 				path: 'collaboration',
@@ -120,11 +124,6 @@ export const appRoutes: Route[] = [
 			{
 				path: 'visualizations',
 				loadChildren: () => import('./zdslogic-ui-plugins/visualizations/visualizations.module').then(m => m.VisualizationsModule)
-			},
-
-			{
-				path: 'contact',
-				loadChildren: () => import('./zdslogic-ui-plugins/collaboration/collaboration.module').then(m => m.CollaborationModule)
 			},
 
 			{ path: 'meet', component: VideoJitsiPublicComponent },

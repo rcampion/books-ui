@@ -1,0 +1,66 @@
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs';
+import { Contact } from '../interfaces/contact.model';
+import { ContactsService } from './contacts.service';
+import { BehaviorSubject } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { PaginationPropertySort } from '../interfaces/pagination';
+import { ErrorHandlerService } from 'app/zdslogic-ui-base/core/services/error-handler.service';
+import { AngularLogService } from 'app/zdslogic-ui-base/core/services/angular-log.service';
+
+
+export class ContactsDataSource implements DataSource<Contact> {
+
+    private contactsSubject = new BehaviorSubject<Contact[]>([]);
+
+    private loadingSubject = new BehaviorSubject<boolean>(false);
+
+    public loading$ = this.loadingSubject.asObservable();
+
+    public total = 0;
+
+    constructor(private _contactsService: ContactsService,
+                private _errorHandlerService: ErrorHandlerService) {
+    }
+
+    loadContacts(
+        filter: string,
+        sortProperty: string,
+        sortDirection: string,
+        pageIndex: number,
+        pageSize: number): void {
+
+        this.loadingSubject.next(true);
+
+        const sort = new PaginationPropertySort();
+        sort.property = sortProperty;
+        sort.direction = sortDirection;
+
+        this._contactsService.findContactsWithSortAndFilter(filter, sort,
+            pageIndex, pageSize).pipe(
+                catchError(() => of([])),
+                finalize(() => this.loadingSubject.next(false))
+            )
+            .subscribe((response) => {
+                    this.contactsSubject.next(response.content);
+                    this.total = response.totalElements;
+                },
+                (error) => {
+                    this._errorHandlerService.handleError(error);
+                }
+            );
+    }
+
+    connect(collectionViewer: CollectionViewer): Observable<Contact[]> {
+        ////console.log('Connecting data source');
+        return this.contactsSubject.asObservable();
+    }
+
+    disconnect(collectionViewer: CollectionViewer): void {
+        this.contactsSubject.complete();
+        this.loadingSubject.complete();
+    }
+
+}
+

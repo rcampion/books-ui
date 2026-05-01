@@ -1,0 +1,20 @@
+<app-contact-data class="w-1/3" [contact]='contact' (selectEmitt)='showAccounts = $event'></app-contact-data>
+
+<mat-tab-group class="w-2/3">
+    <mat-tab label="EMail">
+		<app-contact-email-list> </app-contact-email-list>
+    </mat-tab>
+    <mat-tab label="Phone">
+		<app-contact-phone-list> </app-contact-phone-list>
+    </mat-tab>
+    <mat-tab label="Address">
+		<app-contact-address-list> </app-contact-address-list>
+    </mat-tab>
+    <mat-tab label="Website">
+		<app-contact-website-list> </app-contact-website-list>
+    </mat-tab>
+    <mat-tab label="Notes">
+		<app-contact-note-list> </app-contact-note-list>
+    </mat-tab>     
+</mat-tab-group>
+

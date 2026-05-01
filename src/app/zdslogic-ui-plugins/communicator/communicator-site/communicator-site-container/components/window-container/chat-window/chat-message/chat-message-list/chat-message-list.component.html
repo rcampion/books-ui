@@ -1,0 +1,154 @@
+<div class="relative flex flex-auto w-full bg-card dark:bg-transparent">
+
+	<!-- Messages list -->
+	<ng-container *ngIf="window.messages && window.messages.length> 0; else noMessages">
+
+		<div class="relative flex flex-auto flex-col w-full min-w-0 lg:min-w-90 lg:max-w-90 border-r z-10">
+			<!-- Search -->
+			
+<!--
+			<div class="flex flex-auto search-component">
+
+				<div class="flex flex-auto">
+					<mat-form-field class="fuse-mat-no-subscript w-full sm:w-96 sm:mt-0" [floatLabel]="'always'">
+						<mat-icon matPrefix class="icon-size-5" [svgIcon]="'heroicons_solid:search'"
+							(click)="searchFormSubmitted('ALL')"></mat-icon>
+						<input placeholder="Search by title or description" matInput #query id="searchQuery"
+							(keyup)="searchValueChanged()" (keyup.enter)="searchFormSubmitted('ALL')"
+							[(ngModel)]="searchString" name="searchString">
+					</mat-form-field>
+				</div>
+
+			</div>
+-->
+
+			<div class="search-component container-fluid">
+
+				<div class="input-group col-xs-12">
+
+					<input type="text" id="searchQuery" class="form-control" autocomplete="off" placeholder="Search"
+						(keyup)="searchValueChanged()" (keyup.enter)="searchFormSubmitted('ALL')"
+						[(ngModel)]="searchString" name="searchString" />
+
+					<div class="input-group-btn">
+
+						<button class="btn btn-default btn-search" type="submit" (click)="searchFormSubmitted('ALL')"
+							aria-label="search button">
+							<fa-icon class="fa-2x" icon="search"></fa-icon>
+						</button>
+					</div>
+
+				</div>
+
+			</div>
+			
+			<!-- Header -->
+			<div
+				class="relative flex flex-0 items-center justify-between h-16 px-4 border-b bg-gray-50 dark:bg-transparent">
+
+				<!-- Pagination -->
+				<div class="flex items-center pagination">
+					<mat-paginator [length]="total" [pageSize]="25" [pageSizeOptions]="[10, 25, 50, 100]"
+						[hidePageSize]="true" (page)="onPaginatorChange($event)"> </mat-paginator>
+				</div>
+
+				<!-- Loading bar -->
+				<mat-progress-bar class="absolute inset-x-0 bottom-0 h-0.5" *ngIf="window.messagesLoading"
+					[mode]="'indeterminate'"></mat-progress-bar>
+			</div>
+
+			<!-- Message list -->
+			<div class="overflow-y-auto" #mailList>
+
+				<!-- Item loop -->
+				<ng-container *ngFor="let message of window.messages; let i = index; trackBy: trackByFn">
+
+					<!-- Item -->
+					<a class="relative flex border-t first:border-0 hover:bg-hover"
+						(click)="onMessageSelected(message)">
+
+						<!-- Item content -->
+						<div class="flex flex-col items-start justify-start w-full py-6 pr-4 pl-5 border-l-4 border-transparent"
+							[ngClass]="{'border-primary': message.unread,
+																			'bg-primary-50 dark:bg-black dark:bg-opacity-5': selectedMessage && selectedMessage === message.id}">
+
+							<!-- Info -->
+							<div class="flex items-center w-full">
+								<!-- Sender name -->
+								<div class="mr-2 font-semibold truncate text-slate-700">
+									{{message.fromText?.split('<')[0].trim()}} </div>
+										<!-- Important indicator -->
+										<!-- <mat-icon
+																	class="mr-3 icon-size-4 text-red-500 dark:text-red-600"
+																	*ngIf="message.important"
+																	[svgIcon]="'heroicons_solid:exclamation-circle'"></mat-icon> -->
+										<!-- Date -->
+										<div class="ml-auto text-md text-right whitespace-nowrap text-hint">
+											{{message.dateSent | date:'LLL dd'}}
+										</div>
+								</div>
+								<div class="flex flex-auto w-full justify-between">
+									<div class="flex flex-col">
+										<!-- Subject -->
+										<div class="mt-2 flex items-center w-full mt-1 text-slate-600">
+											<span class="leading-4 truncate">{{message.subject}}</span>
+											<!-- Indicators -->
+											<!-- <div
+																			class="flex ml-auto pl-2"
+																			*ngIf="(message.attachments && message.attachments.length > 0) || message.starred">
+																			
+																			<mat-icon
+																					class="flex justify-center icon-size-4"
+																					*ngIf="message.attachments && message.attachments.length > 0"
+																					[svgIcon]="'heroicons_solid:paper-clip'"></mat-icon>
+																			
+																			<mat-icon
+																					class="flex justify-center icon-size-4 ml-1 text-orange-500 dark:text-orange-400"
+																					*ngIf="message.starred"
+																					[svgIcon]="'heroicons_solid:star'"></mat-icon>
+																	</div> -->
+										</div>
+
+										<!-- Excerpt -->
+										<div class="mt-2 leading-normal line-clamp-2 text-gray-400">
+											{{message.message}}...
+										</div>
+									</div>
+								</div>
+							</div>
+
+					</a>
+
+				</ng-container>
+			</div>
+
+		</div>
+
+	</ng-container>
+
+	<!-- No messages template -->
+	<ng-template #noMessages>
+		<div
+			class="z-100 absolute inset-0 flex flex-auto flex-col items-center justify-center bg-gray-100 dark:bg-transparent">
+			<mat-icon class="icon-size-24" [svgIcon]="'heroicons_outline:mail'"></mat-icon>
+			<div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">There are no messages</div>
+		</div>
+	</ng-template>
+
+	<!-- Message details -->
+	<ng-container *ngIf="window.messages && window.messages.length>0">
+		<div *ngIf="selectedMessage" class="flex-auto" [ngClass]="{'z-20 absolute inset-0 lg:static lg:inset-auto flex': selectedMessage ,
+									'hidden lg:flex': !selectedMessage }">
+			<router-outlet></router-outlet>
+
+		</div>
+		
+		<div *ngIf="!selectedMessage"
+			class="flex flex-col flex-auto items-center justify-center bg-gray-100 dark:bg-transparent">
+			<mat-icon class="icon-size-24" [svgIcon]="'heroicons_outline:mail'"></mat-icon>
+			<div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">Select a message to read</div>
+		</div>
+		
+	</ng-container>
+
+</div>

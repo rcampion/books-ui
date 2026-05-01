@@ -1,0 +1,11 @@
+<div 
+  class="relative w-10 h-10 cursor-pointer" 
+  (click)="toggleFavorite()">
+  <mat-icon class="icon-size-10" 
+            [ngClass]="{'text-gray-400': isSubmitting,
+                  'text-green-400': !article.favorited,
+                  'text-red-400': article.favorited }" 
+            [svgIcon]="'heroicons_solid:heart'">      
+  </mat-icon>
+  <span><ng-content></ng-content></span>
+</div>

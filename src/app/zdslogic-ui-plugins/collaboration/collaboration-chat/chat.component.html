@@ -1,0 +1,90 @@
+
+<app-popup #popupChat></app-popup>
+
+<div class="grow flex-col w-full">
+	
+	<button mat-raised-button color="primary" class="btn btn-success m-1 w-52" (click)="openChat()">Open WebChat</button>
+
+	<br>
+
+	<section class="mt-1">
+		<mat-card class="p-3 mt-1">
+			<!--  	 
+				<mat-card-title></mat-card-title>
+			-->
+			<!--  
+				<form [formGroup]="callForm" autocomplete="off" novalidate (ngSubmit)="saveCallSettings(callForm.value)" fxLayout="column wrap"
+					fxLayoutAlign="center center" fxLayoutGap="10px">
+			-->		
+			<mat-card-content>
+				<div class="container page w-full">
+					<p-panel>
+						<div>
+							<div class="w-full">
+								<table class="w-full">
+									<tr>
+										<td>									
+											<div class="flex items-baseline">       
+												<mat-form-field class="w-52">
+													<input matInput type="text" id="from" placeholder="Choose a nickname" />
+												</mat-form-field>
+											                                  
+												<button id="connect" class="fuse-mat-button-medium mat-primary ml-2" mat-flat-button
+														(click)="connectToServer()">Connect</button>										
+												<!-- <button id="disconnect" class="fuse-mat-button-medium mat-button-toggle-checked ml-3" mat-flat-button
+														(click)="disconnect()">LogOut</button> -->
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<div id="conversationDiv" class="mt-5 w-90">
+												<div class="flex align-center">
+													<mat-form-field class="fuse-mat-dense fuse-mat-no-subscript rounded-md w-90">
+														<textarea id="text"
+															class="min-h-5 ml-3"
+															style="margin: 11px 0 !important; padding: 0 !important;"
+															placeholder="Write a message..."
+															[rows]="1"
+															matInput
+															#messageInput></textarea>
+													</mat-form-field>
+													<div class="flex items-center h-10 my-px ml-4">
+														<button id="sendMessage" mat-icon-button (click)="sendMessage()">
+															<mat-icon
+																		class="rotate-90"
+																		[svgIcon]="'heroicons_outline:paper-airplane'"></mat-icon>
+														</button>
+													</div>
+												</div>
+												
+<div id="scrollbox" style="height:330px;width:380px;overflow:auto;background-color:lightblue;color:black;scrollbar-base-color:gold;font-family:sans-serif;padding:10px;">
+<p id="response"></p>
+</div>
+											</div>
+
+
+											<!--  						
+											<cdk-virtual-scroll-viewport class="example-viewport" itemSize="60">
+												<dl class="example-dl">
+													<ng-container *cdkVirtualFor="let state of states">
+														<dt class="example-dt">{{state.name}}</dt>
+														<dd class="example-dd">{{state.capital}}</dd>
+													</ng-container>
+												</dl>
+											</cdk-virtual-scroll-viewport>
+											-->
+
+										</td>
+									</tr>
+
+								</table>
+							</div>
+						</div>
+					</p-panel>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</section>
+</div>

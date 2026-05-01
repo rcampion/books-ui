@@ -1,0 +1,190 @@
+<section class="w-full" fxLayout="row wrap" fxLayoutAlign="center center">
+	<mat-card fxFlex="100%" fxFlex.xs="100%">
+		<mat-card-title>Contact Details</mat-card-title>
+		<form novalidate>
+			<p-panel>
+				<mat-card-content>
+					<div class="flex flex-col flex-auto items-center bg-card shadow rounded-2xl overflow-hidden justify-between">
+							<!-- Status & Action -->
+							<div class="flex flex-auto w-full p-4 pb-0 justify-end items-center max-h-12">
+								<button [ngClass]="getStatusClass(contact.presenceStatus)" class="max-h-8 rounded-md py-1 px-5 mr-2">
+									{{ getStatusName(contact.presenceStatus) }}
+								</button>
+<!--
+								<button
+										mat-icon-button
+										[matMenuTriggerFor]="contactAction">
+										<mat-icon
+												class="icon-size-5"
+												[svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+								</button>
+								<mat-menu #contactAction="matMenu">
+										<button mat-menu-item></button>
+								</mat-menu>
+-->
+							</div>	
+							<!-- Avatar & Info -->
+							<div class="flex flex-col w-full p-4 text-center">
+									<div class="w-32 h-32 mx-auto rounded-full overflow-hidden">
+										<ng-container *ngIf="contact.imageURL">
+												<img
+														class="w-full h-full object-cover"
+														[src]="contact.imageURL"
+														alt="element avatar"/>
+										</ng-container>
+										<ng-container *ngIf="!contact.imageURL">
+												<div class="w-full h-full object-cover">
+														{{contact.fullName.charAt(0)}}
+												</div>
+										</ng-container>
+									</div>
+									<div class="mt-6 text-xl text-blue-700">{{contact.fullName}}</div>
+									<div class="text-base text-slate-700">{{contact.title}}</div>
+									<div class="text-sm text-slate-500">{{contact.company}}</div>
+							</div>
+
+							<!-- Email & Phone -->
+							<div class="contact-actions flex items-center justify-between w-full border-t divide-x p-4">
+								<button 
+									class="videocam p-2 hover:bg-hover"
+									(click)="redirectToVideo(contact)">
+									<mat-icon class="flex items-center icon-size-5 text-hint" [svgIcon]="'heroicons_solid:video-camera'">videocam</mat-icon>
+								</button>
+								<button 
+									class="person p-2 hover:bg-hover"
+									(click)="redirectToProfile(contact)">
+									<mat-icon class="flex items-center icon-size-5 text-hint" [svgIcon]="'heroicons_solid:user'">person</mat-icon>
+								</button>
+								<button 
+									class="system_udpate p-2 hover:bg-hover"
+									(click)="redirectToDetails(contact)">							
+									<mat-icon class="flex items-center icon-size-5 text-hint mat-18">reorder</mat-icon>
+								</button>
+								<button 
+									class="delete p-2 hover:bg-hover"
+									(click)="delete(contact)">
+									<mat-icon class="flex items-center icon-size-5 text-hint" [svgIcon]="'heroicons_solid:trash'">delete</mat-icon>
+								</button>							
+							</div>
+					</div>
+					
+					<div fxLayout="column wrap" fxLayoutAlign="center start">
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Full name: </strong>
+							</div>
+							<div>{{contact?.fullName}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>First name:</strong>
+							</div>
+
+							<div>{{contact?.firstName}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Last name:</strong>
+							</div>
+							<div>{{contact?.lastName}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Company:</strong>
+							</div>
+							<div>{{contact?.company}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Title:</strong>
+							</div>
+							<div>{{contact?.title}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>LinkedIn:</strong>
+							</div>
+							<!--   <div>{{contact?.linkedin}}</div> -->
+							<!--  <a (click)="openLink({{contact?.linkedin}})">Go to LinkedIn</a> 
+				<a [href]="contact.linkedin" target="_blank">{{contact?.linkedin}}</a>
+				-->
+							<a class="leading-5" target="_blank" href="{{contact?.linkedin}}">{{contact?.linkedin}}</a>.
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Facebook:</strong>
+							</div>
+							<!--  <div>{{contact?.facebook}}</div> -->
+							<!--				<a [href]="contact.facebook" target="_blank">{{contact?.facebook}}</a> -->
+							<a class="leading-5" target="_blank" href="{{contact?.facebook}}">{{contact?.facebook}}</a>.
+
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Birthdate:</strong>
+							</div>
+							<div>{{contact?.birthdate}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Created At:</strong>
+							</div>
+							<div>{{contact?.createdAt | date:'short' }}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>UpdatedAt:</strong>
+							</div>
+							<div>{{contact?.updatedAt | date:'short'}}</div>
+						</div>
+<!--
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>UserId:</strong>
+							</div>
+							<div>{{contact?.userId}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>OwnerId:</strong>
+							</div>
+							<div>{{contact?.ownerId}}</div>
+						</div>
+
+						<div fxLayout="row" fxFlex>
+							<div class="min-w-24 text-left">
+								<strong>Enabled:</strong>
+							</div>
+							<div>{{contact?.enabled}}</div>
+						</div>
+-->						
+					</div>
+				</mat-card-content>
+
+				<mat-card-actions>
+					<button mat-raised-button color="primary" (click)="onCancel()">OK</button>
+
+					<div class="divider"></div>
+
+					<button mat-raised-button color="primary" (click)="redirectToUpdate(contact)">Update</button>
+
+					<!--<div class="divider"></div> -->
+
+					<button mat-raised-button color="primary" (click)="redirectToProfile(contact)">Profile</button>
+				</mat-card-actions>
+
+			</p-panel>
+		</form>
+	</mat-card>
+</section>

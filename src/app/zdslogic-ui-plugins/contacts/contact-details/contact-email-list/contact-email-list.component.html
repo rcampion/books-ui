@@ -1,0 +1,72 @@
+<div class="flex flex-auto items-center gap-3">
+	<span>Add EMail</span>
+<!--
+	<button mat-icon-button color="primary" matTooltip="Add email"
+		(click)="redirectToAdd()">
+		<mat-icon class="mat-18">add</mat-icon>
+	</button>
+-->
+	<button mat-mini-fab matTooltip="Add EMail"
+		style="margin-right: 10px; color:black; background-color: #d8d8d8"
+		(click)="redirectToAdd()">
+		<mat-icon>add</mat-icon>
+	</button>	
+</div>
+<table class="table table-striped align-middle" mat-table [dataSource]="dataSource"
+	matSort>
+	<ng-container matColumnDef="email">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header>EMail</th>
+	<td mat-cell *matCellDef="let element">{{element.email}}</td>
+	</ng-container>
+
+	<ng-container matColumnDef="emailKind">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header>EMail Type</th>
+	<td mat-cell *matCellDef="let element"><mat-select
+			[value]="element.emailKind" [disabled]="true"> <mat-option
+			*ngFor="let emailSelect of emailTypes" [value]="emailSelect.value">
+		{{emailSelect.viewValue}} </mat-option> </mat-select></td>
+	</ng-container>
+
+	<ng-container matColumnDef="priorityKind">
+	<th mat-header-cell *matHeaderCellDef mat-sort-header>Priority
+		Type</th>
+	<td mat-cell *matCellDef="let element"><mat-select
+			[value]="element.priorityKind" [disabled]="true"> <mat-option
+			*ngFor="let prioritySelect of priorityTypes"
+			[value]="prioritySelect.value">
+		{{prioritySelect.viewValue}} </mat-option> </mat-select></td>
+	</ng-container>
+
+	<ng-container matColumnDef="update">
+	<th mat-header-cell *matHeaderCellDef>Update</th>
+	<td mat-cell *matCellDef="let element">
+		<button mat-icon-button color="accent"
+			(click)="redirectToUpdate(element.emailId)">
+			<mat-icon class="mat-18">system_update</mat-icon>
+		</button>
+	</td>
+	</ng-container>
+
+	<ng-container matColumnDef="delete">
+	<th mat-header-cell *matHeaderCellDef>Delete</th>
+	<td mat-cell *matCellDef="let element">
+		<button mat-icon-button color="warn" (click)="delete(element.emailId)">
+			<mat-icon class="mat-18">delete</mat-icon>
+		</button>
+	</td>
+	</ng-container>
+
+	<ng-container matColumnDef="send">
+	<th mat-header-cell *matHeaderCellDef>EMail</th>
+	<td mat-cell *matCellDef="let element">
+		<button mat-icon-button color="accent"
+			(click)="redirectToEMail(element.emailId)">
+			<mat-icon class="mat-18">email</mat-icon>
+		</button>
+	</td>
+	</ng-container>
+
+	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

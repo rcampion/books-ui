@@ -1,0 +1,40 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+	<mat-card fxFlex="1000px" fxFlex.xs="100%"> <mat-card-title>Update
+			Note</mat-card-title>
+		<form [formGroup]="noteForm" autocomplete="off" novalidate (ngSubmit)="updateNote(noteForm.value)"
+			fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+			<mat-card-content> 
+				<mat-form-field class="min-w-52">
+					<input matInput type="text" placeholder="Description" formControlName="description" id="description">
+					<mat-hint align="end">Not more then 60 characters long.</mat-hint> <mat-error
+						*ngIf="hasError('description', 'required')">Description
+						is required</mat-error> <mat-error *ngIf="hasError('description', 'maxlength')">You
+						have more than 60 characters</mat-error> 
+					</mat-form-field> 
+				<br />
+				<!--
+        <mat-form-field>
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="20" placeholder="Note"
+            formControlName="text" id="text">
+          </textarea>
+        </mat-form-field>
+--> <br />
+
+
+
+
+
+				<ckeditor formControlName="text" [editor]="editor" id="description" name="description">
+				</ckeditor>
+
+			</mat-card-content>
+			<mat-card-actions align="start">
+				<button mat-raised-button color="primary" [disabled]="!noteForm.valid">Update</button>
+				<button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+			</mat-card-actions>
+		</form>
+	</mat-card>
+
+
+
+</section>

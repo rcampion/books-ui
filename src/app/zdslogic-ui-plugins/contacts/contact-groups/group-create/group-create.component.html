@@ -1,0 +1,32 @@
+<div class="mx-auto flex flex-col min-w-full">
+  <div class="flex flex-col p-6 sm:p-10">
+    <form [formGroup]="groupForm" autocomplete="off" novalidate (ngSubmit)="createGroup(groupForm.value)">
+      <div class="flex flex-col flex-auto w-full max-w-xs sm:max-w-2xl mx-auto">
+        <mat-card-title  class="mb-4 text-center">Create a new group</mat-card-title>
+
+        <mat-card-content class="flex flex-col gap-4 mb-4">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Group Name" formControlName="groupName" id="groupName">
+            <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+            <mat-error *ngIf="hasError('groupName', 'required')">Group Name is required</mat-error>
+            <mat-error *ngIf="hasError('groupName', 'maxlength')">You have more than 60 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="text" placeholder="Group Description" formControlName="groupDescription"
+              id="groupDescription">
+            <mat-hint align="end">Not more then 120 characters long.</mat-hint>
+            <mat-error *ngIf="hasError('groupDescription', 'required')">Group description is required</mat-error>
+            <mat-error *ngIf="hasError('groupDescription', 'maxlength')">You have more than 120 characters</mat-error>
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" [disabled]="!groupForm.valid">Create</button>
+          <button class="ml-4" type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+
+      </div>
+    </form>
+  </div>
+</div>

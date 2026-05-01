@@ -1,0 +1,99 @@
+	<div>
+		<h1>Sent</h1>
+	</div>
+
+<div class="home-page">
+
+	<div class="container page">
+
+		<div class="search-component container-fluid">
+
+			<div class="input-group col-xs-12">
+
+				<input type="text" id="searchQuery" class="form-control"
+					autocomplete="off" placeholder="Search"
+					(keyup)="searchValueChanged()"
+					(keyup.enter)="searchFormSubmitted('ALL')"
+					[(ngModel)]="searchString" name="searchString" />
+
+				<div class="input-group-btn">
+
+					<button class="btn btn-default btn-search" type="submit"
+						(click)="searchFormSubmitted('ALL')" aria-label="search button">
+						<fa-icon class="fa-2x" icon="search"></fa-icon>
+					</button>
+				</div>
+
+			</div>
+
+		</div>
+		
+<!--
+		<button class="btn btn-sm btn-outline-primary action-btn"
+			(click)="loadFilesPage()">
+			<mat-icon>refresh</mat-icon>
+			&nbsp;Get Messages
+		</button>
+-->
+<!--		
+		<button class="btn btn-sm btn-outline-primary action-btn"
+			[routerLink]="['/my-emails']">
+			<mat-icon>refresh</mat-icon>&nbsp;Get Messages
+		</button>
+-->
+<!-- 
+			<i class="ion-gear-a"></i> Get Messages
+
+			<i class="ion-gear-a"></i> Compose
+ -->				
+		<button class="btn btn-sm btn-outline-primary action-btn"
+			[routerLink]="['/my-emails/email-compose']">
+			<mat-icon>post_add</mat-icon>&nbsp;Compose
+		</button>
+		
+		<table class="table table-striped" mat-table [dataSource]="dataSource"
+			matSort>
+			<ng-container matColumnDef="toText">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>To</th>
+			<td mat-cell *matCellDef="let element">{{element.toText}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="subject">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Subject</th>
+			<td mat-cell *matCellDef="let element">{{element.subject}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="dateSent">
+			<th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+			<td mat-cell *matCellDef="let element">{{element.dateSent |
+				date:'short'}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="details">
+			<th mat-header-cell *matHeaderCellDef>Details</th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-icon-button color="primary"
+					(click)="redirectToDetails(element.id)">
+					<mat-icon class="mat-18">reorder</mat-icon>
+				</button>
+			</td>
+			</ng-container>
+
+			<ng-container matColumnDef="delete">
+			<th mat-header-cell *matHeaderCellDef>Delete</th>
+			<td mat-cell *matCellDef="let element">
+				<button mat-icon-button color="warn"
+					(click)="redirectToDelete(element.id)">
+					<mat-icon class="mat-18">delete</mat-icon>
+				</button>
+			</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+		</table>
+	</div>
+</div>
+<mat-paginator [length]="dataSource.total" [pageSize]="6"
+	[pageSizeOptions]="[2, 4, 6, 10, 20]"> </mat-paginator> 

@@ -1,0 +1,86 @@
+<div class="mx-auto flex flex-col min-w-full">
+	<div class="flex flex-col p-6 sm:p-10">
+
+		<div class="flex flex-col flex-auto w-full max-w-xs sm:max-w-5xl mx-auto">
+			<div class="flex flex-auto search-component">
+				<div class="flex flex-auto">
+					<mat-form-field class="fuse-mat-no-subscript w-full sm:w-96 sm:mt-0" [floatLabel]="'always'">
+						<mat-icon matPrefix class="icon-size-5" [svgIcon]="'heroicons_solid:search'"
+							(click)="searchFormSubmitted('ALL')"></mat-icon>
+						<input placeholder="Search by title or description" matInput #query id="searchQuery"
+							(keyup)="searchValueChanged()" (keyup.enter)="searchFormSubmitted('ALL')" [(ngModel)]="searchString"
+							name="searchString">
+					</mat-form-field>
+				</div>
+
+				<button [color]="'primary'" mat-flat-button routerLink="/contacts/groups/create" routerLinkActive="active">
+					<mat-icon class="mr-2">post_add</mat-icon> Create Group
+				</button>				
+			</div>
+		</div>
+
+		<div class="flex flex-col flex-auto w-full max-w-xs sm:max-w-5xl mx-auto">
+			<table class="table table-striped align-middle" mat-table [dataSource]="dataSource"
+				matSort>
+				<ng-container matColumnDef="groupName">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Group Name</th>
+				<td mat-cell *matCellDef="let element">{{element.groupName}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="groupDescription">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Group
+					Description</th>
+				<td mat-cell *matCellDef="let element">
+					{{element.groupDescription}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="details">
+				<th mat-header-cell *matHeaderCellDef>Details</th>
+				<td mat-cell matTooltip="Details" *matCellDef="let element">
+					<button mat-icon-button color="primary"
+						(click)="redirectToDetails(element.groupId)">
+						<mat-icon class="mat-18">reorder</mat-icon>
+					</button>
+				</td>
+				</ng-container>
+
+				<ng-container matColumnDef="update">
+				<th mat-header-cell *matHeaderCellDef>Update</th>
+				<td mat-cell matTooltip="Update" *matCellDef="let element">
+					<button mat-icon-button color="accent"
+						(click)="redirectToUpdate(element.groupId)">
+						<mat-icon class="mat-18">system_update</mat-icon>
+					</button>
+				</td>
+				</ng-container>
+
+				<ng-container matColumnDef="delete">
+				<th mat-header-cell *matHeaderCellDef>Delete</th>
+				<td mat-cell matTooltip="Delete" *matCellDef="let element">
+					<button mat-icon-button color="warn"
+						(click)="redirectToDelete(element.groupId)">
+						<mat-icon class="mat-18">delete</mat-icon>
+					</button>
+				</td>
+				</ng-container>
+
+				<ng-container matColumnDef="send">
+				<th mat-header-cell *matHeaderCellDef>EMail</th>
+				<td mat-cell matTooltip="EMail" *matCellDef="let element">
+					<button mat-icon-button color="accent"
+						(click)="redirectToEMail(element.groupId)">
+						<mat-icon class="mat-18">email</mat-icon>
+					</button>
+				</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+
+			<mat-paginator [length]="dataSource.total" [pageSize]="6"
+				[pageSizeOptions]="[2, 4, 6, 10, 20]"> </mat-paginator>
+		</div>	
+	</div>
+</div>
+

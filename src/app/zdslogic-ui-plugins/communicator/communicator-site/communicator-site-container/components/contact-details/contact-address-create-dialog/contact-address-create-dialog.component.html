@@ -1,0 +1,76 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Create address</mat-card-title>
+    <form [formGroup]="addressForm" autocomplete="off" novalidate (ngSubmit)="createAddress(addressForm.value)"
+      fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="text" placeholder="Address Line 1" formControlName="addressLine1" id="addressLine1">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('addressLine1', 'required')">Address Line 1 is required</mat-error>
+          <mat-error *ngIf="hasError('addressLine1', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <br />
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="text" placeholder="Address Line 2" formControlName="addressLine2" id="addressLine2">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('addressLine2', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <br />
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="text" placeholder="Address City" formControlName="addressCity" id="addressCity">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('addressCity', 'required')">Address City is required</mat-error>
+          <mat-error *ngIf="hasError('addressCity', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <br />
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="text" placeholder="Address State" formControlName="addressState" id="addressState">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('addressState', 'required')">Address State is required</mat-error>
+          <mat-error *ngIf="hasError('addressState', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <br />
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="text" placeholder="Address Country" formControlName="addressCountry"
+            id="addressCountry">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('addressCountry', 'required')">Address Country is required</mat-error>
+          <mat-error *ngIf="hasError('addressCountry', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="min-w-52">
+          <input matInput type="text" placeholder="Address Zip" formControlName="addressZip" id="addressZip">
+          <mat-hint align="end">Not more then 60 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('addressZip', 'required')">Address Zip is required</mat-error>
+          <mat-error *ngIf="hasError('addressZip', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <br />
+        <mat-form-field class="min-w-52">
+          <mat-select placeholder="Address Type" formControlName="addressKind" id="addressKind">
+            <mat-option *ngFor="let addressKind of addressTypes" [value]="addressKind.value">
+              {{addressKind.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <mat-card-actions align="start">
+        <button mat-raised-button color="primary" [disabled]="!addressForm.valid">Create</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section>

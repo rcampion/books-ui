@@ -1,0 +1,43 @@
+<!-- <div class="article-meta">
+  <a [routerLink]="['/profiles', article.author.userName]">
+    <img [src]="article.author.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'" alt="author image" />
+  </a>
+
+  <div class="info">
+    <a class="author"
+      [routerLink]="['/profiles', article.author.userName]">
+      {{ article.author.userName }}
+    </a>
+    <span class="date">
+      {{ article.createdAt | date: 'longDate' }}
+    </span>
+  </div>
+
+  <ng-content></ng-content>
+</div> -->
+
+<div class="flex flex-auto items-center article-meta">
+  <div class="relative flex flex-0 items-center justify-center w-10 h-10">
+      <ng-container *ngIf="message.image">
+          <img
+              class="w-full h-full rounded-full object-cover"
+              [src]="message.image"
+              alt="Contact avatar"/>
+      </ng-container>
+      <ng-container *ngIf="!message.image">
+          <div class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+              {{message.fromText.charAt(0)}}
+          </div>
+      </ng-container>
+  </div>
+  <div class="flex flex-col ml-4 text-lg font-medium leading-5 truncate">
+    <a class="author" (click)="redirectToProfile(message)">
+      {{ message.fromText }}
+    </a>
+    <span class="date text-gray-400 text-sm mt-1">
+      {{ message.dateSent | date: 'longDate' }}
+    </span>
+  </div>     
+  
+  <ng-content></ng-content>
+</div>

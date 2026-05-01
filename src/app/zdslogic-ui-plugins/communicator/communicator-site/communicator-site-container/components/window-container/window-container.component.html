@@ -1,0 +1,107 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+
+	<mat-drawer-container class="flex-auto h-full">
+
+		<!-- Drawer -->
+		<mat-drawer>
+			<!--
+			<table class="w-full bg-card dark:bg-transparent">
+				<tr>
+					<td>
+						<div>
+							<p>{{contact.fullName}}</p>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+
+					</td>
+				</tr>
+
+			</table>
+-->
+		</mat-drawer>
+
+		<!-- Drawer content -->
+		<mat-drawer-content class="flex flex-col overflow-hidden">
+
+			<!-- Main -->
+			<div class="flex flex-auto overflow-hidden">
+				<table>
+					<tr>
+						<td>
+							<div>
+								<ng-container>
+									<div class="flex items-center py-3 px-4 cursor-pointer border-transparent"
+										[ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedChat || selectedChat.id !== contact.id,
+                                        'bg-primary-50 dark:bg-hover': selectedChat && selectedChat.id === contact.id}"
+										(click)="selectChat(contact)">
+										<div class="relative flex flex-0 items-center justify-center w-8 h-8">
+											<ng-container *ngIf="contact.presenceImageUrl">
+												<!-- <div
+                                        class="absolute bottom-0 right-0 flex-0 w-2 h-2 -ml-0.5 rounded-full ring-2 ring-bg-card dark:ring-gray-900 bg-primary dark:bg-primary-500 text-on-primary"
+                                        [class.ring-primary-50]="selectedChat && selectedChat.contactId === contact.contactId"></div> -->
+												<img class="absolute bottom-0 right-0 flex-0 w-2 h-2 -ml-0.5 rounded-full ring-2 ring-bg-card dark:ring-gray-900 bg-primary dark:bg-primary-500 text-on-primary"
+													[src]="contact.presenceImageUrl" />
+											</ng-container>
+											<ng-container *ngIf="contact.imageURL">
+												<img class="w-full h-full rounded-full object-cover"
+													[src]="contact.imageURL" alt="Contact avatar" />
+											</ng-container>
+											<ng-container *ngIf="!contact.imageURL">
+												<div
+													class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+													{{contact.fullName.charAt(0)}}
+												</div>
+											</ng-container>
+										</div>
+
+
+										<div class="flex py-3 px-4">
+											<div class="flex-1 leading-8 h-8">
+												{{contact.fullName}}
+											</div>
+
+											<!--
+                                <div class="flex items-center h-8">
+                                    <button mat-icon-button color="primary" (click)="redirectToVideo(contact)">
+                                        <mat-icon class="mat-18">videocam</mat-icon>
+                                    </button>
+                               
+                                    <button mat-icon-button color="primary" (click)="redirectToDetails(contact)">
+                                        <mat-icon class="mat-18">reorder</mat-icon>
+                                    </button>
+                               
+                                    <button mat-icon-button color="warn" (click)="delete(contact)">
+                                        <mat-icon class="mat-18">delete</mat-icon>
+                                    </button>
+                                </div>
+-->
+
+										</div>
+
+									</div>
+
+								</ng-container>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+<!--
+								<app-chat-window-container [contact]='contact'></app-chat-window-container>
+-->
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</mat-drawer-content>
+
+	</mat-drawer-container>
+
+</div>

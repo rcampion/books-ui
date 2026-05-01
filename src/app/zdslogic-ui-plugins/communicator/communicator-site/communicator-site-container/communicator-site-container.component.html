@@ -1,0 +1,254 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+
+	<mat-drawer-container class="flex-auto h-full">
+
+		<!-- Drawer -->
+		<mat-drawer class="w-72 dark:bg-gray-900" [mode]="drawerMode" [opened]="drawerOpened" #drawer>
+
+			<!-- Sidebar -->
+			<div class="flex flex-col flex-auto w-full">
+
+				<!-- Title -->
+				<div class="mt-2 mb-2 mx-6 text-4xl font-extrabold tracking-tight leading-none">Messaging</div>
+
+				<!-- Contact -->
+				<div class="flex items-center py-3 px-4 cursor-pointer border-transparent" [ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedChat || selectedChat.id !== contact.id,
+                                        'bg-primary-50 dark:bg-hover': selectedChat && selectedChat.id === contact.id}"
+					(click)="selectChat('contact', contact)">
+
+					<div
+						class="flex flex-col flex-auto items-center bg-card shadow rounded-2xl overflow-hidden justify-between">
+						<!-- Status & Action -->
+						<div class="flex flex-auto w-full p-4 pb-0 justify-end items-center max-h-12">
+							<button [ngClass]="getStatusClass(currentUser.presenceStatus)"
+								class="max-h-8 rounded-md py-1 px-5 mr-2">
+								{{ getStatusName(currentUser.presenceStatus) }}
+							</button>
+							<!--
+								<button
+										mat-icon-button
+										[matMenuTriggerFor]="contactAction">
+										<mat-icon
+												class="icon-size-5"
+												[svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+								</button>
+								<mat-menu #contactAction="matMenu">
+										<button mat-menu-item></button>
+								</mat-menu>
+-->
+						</div>
+
+						<!-- Avatar & Info -->
+						<div class="flex flex-col w-full p-4 text-center">
+							<div class="w-32 h-32 mx-auto rounded-full overflow-hidden">
+								<ng-container *ngIf="currentProfile.imageURL">
+									<img class="w-full h-full object-cover" [src]="currentProfile.imageURL"
+										alt="element avatar" />
+								</ng-container>
+								<ng-container *ngIf="!currentProfile.imageURL">
+									<div class="w-full h-full object-cover">
+										{{contact.fullName.charAt(0)}}
+									</div>
+								</ng-container>
+							</div>
+							<div class="mt-6 text-xl text-blue-700">{{contact.fullName}}</div>
+							<div class="text-base text-slate-700">{{contact.title}}</div>
+							<div class="text-sm text-slate-500">{{contact.company}}</div>
+						</div>
+
+						<!-- Email Video Profile & Phone -->
+						<div class="contact-actions flex items-center justify-between w-full border-t divide-x p-4">
+							<button class="videocam p-2 hover:bg-hover" (click)="redirectToEMail(contact)">
+								<mat-icon class="flex items-center icon-size-5 text-hint"
+									[svgIcon]="'heroicons_solid:mail'">email</mat-icon>
+							</button>
+							<button class="videocam p-2 hover:bg-hover" (click)="redirectToVideo(contact)">
+								<mat-icon class="flex items-center icon-size-5 text-hint"
+									[svgIcon]="'heroicons_solid:video-camera'">videocam</mat-icon>
+							</button>
+							<button class="person p-2 hover:bg-hover" (click)="redirectToProfile(contact)">
+								<mat-icon class="flex items-center icon-size-5 text-hint"
+									[svgIcon]="'heroicons_solid:user'">person</mat-icon>
+							</button>
+							<button class="system_udpate p-2 hover:bg-hover" (click)="redirectToDetails(contact)">
+								<mat-icon class="flex items-center icon-size-5 text-hint mat-18">reorder</mat-icon>
+							</button>
+<!--
+								<button 
+									class="delete p-2 hover:bg-hover"
+									(click)="delete(contact)">
+									<mat-icon class="flex items-center icon-size-5 text-hint" [svgIcon]="'heroicons_solid:trash'">delete</mat-icon>
+								</button>
+-->
+						</div>
+					</div>
+				</div>
+
+				<!-- Channel list -->
+				<div class="mt-2 mb-2 mx-6 text-2xl font-extrabold tracking-tight leading-none">Channels</div>
+
+				<div>
+
+					<table class="table table-striped align-middle" mat-table [dataSource]="chatChannelsDataSource"
+						matSort>
+
+						<ng-container matColumnDef="presenceImageUrl">
+							<td mat-cell matTooltip="Status" *matCellDef="let element">
+								<img class="status_badge" [src]="element.presenceImageUrl" />
+							</td>
+						</ng-container>
+
+						<ng-container matColumnDef="imageURL">
+							<div class="flex items-center py-3 px-4 cursor-pointer border-transparent">
+								<td mat-cell class="nav-link" *matCellDef="let element">
+									<div class="items-center justify-center w-8 h-8 my-1 rounded-full overflow-hidden">
+
+										<ng-container *ngIf="element.imageURL">
+											<img class="object-cover w-full h-full" [src]="element.imageURL"
+												alt="Contact avatar" (click)="selectChat('channel', element)" />
+										</ng-container>
+
+										<ng-container *ngIf="!element.imageURL">
+											<div
+												class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+												{{element.channelName.charAt(0)}}
+											</div>
+										</ng-container>
+
+									</div>
+								</td>
+							</div>
+						</ng-container>
+
+						<ng-container matColumnDef="channelName">
+							<td mat-cell *matCellDef="let element" class="pl-3">{{element.channelName}}</td>
+						</ng-container>
+
+						<ng-container matColumnDef="video">
+							<td mat-cell matTooltip="Video" *matCellDef="let element">
+								<button mat-icon-button color="primary" (click)="redirectToVideo(element)">
+									<mat-icon class="mat-18">videocam</mat-icon>
+								</button>
+							</td>
+						</ng-container>
+
+						<ng-container matColumnDef="details">
+							<td mat-cell matTooltip="Details" *matCellDef="let element">
+								<button mat-icon-button color="primary" (click)="redirectToDetails(element)">
+									<mat-icon class="mat-18">reorder</mat-icon>
+								</button>
+							</td>
+						</ng-container>
+						<!--
+						<ng-container matColumnDef="delete">
+							<td mat-cell matTooltip="Delete" *matCellDef="let element">
+								<button mat-icon-button color="warn" (click)="delete(element)">
+									<mat-icon class="mat-18">delete</mat-icon>
+								</button>
+							</td>
+						</ng-container>
+-->
+
+						<tr mat-row *matRowDef="let row; columns: chatChannelsDisplayedColumns;"></tr>
+
+					</table>
+
+				</div>
+
+				<!-- Connection list -->
+				<div class="mt-2 mb-2 mx-6 text-2xl font-extrabold tracking-tight leading-none">Connections</div>
+
+				<div>
+
+					<ng-container>
+
+						<table class="table table-striped align-middle" mat-table [dataSource]="userContactsDataSource"
+							matSort>
+							<ng-container matColumnDef="presenceImageUrl">
+								<td mat-cell matTooltip="Status" *matCellDef="let element">
+									<img class="status_badge" [src]="element.presenceImageUrl" />
+								</td>
+							</ng-container>
+							<ng-container matColumnDef="imageURL">
+								<th mat-header-cell *matHeaderCellDef></th>
+								<td mat-cell class="px-2" *matCellDef="let element">
+									<div class="relative w-8 h-8">
+										<ng-container *ngIf="element.presenceImageUrl">
+											<img class="absolute bottom-0 right-0 flex-0 w-2 h-2 -ml-0.5 rounded-full ring-2 ring-bg-card dark:ring-gray-900 bg-primary dark:bg-primary-500 text-on-primary"
+												[src]="element.presenceImageUrl" />
+										</ng-container>
+										<ng-container *ngIf="element.imageURL">
+											<img class="w-full h-full rounded-full object-cover"
+												[src]="element.imageURL" alt="element avatar"
+												(click)="selectChat('connection', element)" />
+										</ng-container>
+										<ng-container *ngIf="!element.imageURL">
+											<div
+												class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+												{{element.fullName.charAt(0)}}
+											</div>
+										</ng-container>
+									</div>
+								</td>
+							</ng-container>
+
+							<ng-container matColumnDef="fullName">
+								<td mat-cell *matCellDef="let element" class="pl-3">{{element.fullName}}</td>
+							</ng-container>
+
+							<ng-container matColumnDef="email">
+								<td mat-cell matTooltip="EMail" *matCellDef="let element">
+									<button mat-icon-button color="primary" (click)="redirectToEMail(element)">
+										<mat-icon class="mat-18">email</mat-icon>
+									</button>
+								</td>
+							</ng-container>
+
+							<ng-container matColumnDef="video">
+								<td mat-cell matTooltip="Video" *matCellDef="let element">
+									<button mat-icon-button color="primary" (click)="redirectToVideo(element)">
+										<mat-icon class="mat-18">videocam</mat-icon>
+									</button>
+								</td>
+							</ng-container>
+
+							<ng-container matColumnDef="details">
+								<td mat-cell matTooltip="Details" *matCellDef="let element">
+									<button mat-icon-button color="primary" (click)="redirectToDetails(element)">
+										<mat-icon class="mat-18">reorder</mat-icon>
+									</button>
+								</td>
+							</ng-container>
+
+							<ng-container matColumnDef="delete">
+								<td mat-cell matTooltip="Delete" *matCellDef="let element">
+									<button mat-icon-button color="warn" (click)="delete(element)">
+										<mat-icon class="mat-18">delete</mat-icon>
+									</button>
+								</td>
+							</ng-container>
+
+							<tr mat-row *matRowDef="let row; columns: userContactsDisplayedColumns;"></tr>
+
+						</table>
+					</ng-container>
+
+				</div>
+
+			</div>
+
+		</mat-drawer>
+
+		<!-- Drawer content -->
+		<mat-drawer-content class="flex flex-col overflow-hidden">
+
+			<!-- Main -->
+			<div class="flex flex-auto overflow-hidden">
+				<router-outlet></router-outlet>
+			</div>
+
+		</mat-drawer-content>
+
+	</mat-drawer-container>
+
+</div>

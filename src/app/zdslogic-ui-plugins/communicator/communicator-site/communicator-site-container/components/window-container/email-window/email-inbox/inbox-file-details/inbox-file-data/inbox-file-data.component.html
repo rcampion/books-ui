@@ -1,0 +1,120 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+
+	<mat-card> <mat-card-title class="title">
+	<div>EMail</div>
+	</mat-card-title>
+
+	<form novalidate>
+		<p-panel> <mat-card-content>
+
+		<div fxLayout="column wrap" fxLayoutAlign="center start">
+
+			<!--
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>Id:</strong>
+				</div>
+				<div>{{file?.id}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>User ID:</strong>
+				</div>
+				<div>{{file?.userId}}</div>
+			</div>
+-->
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>Subject:</strong> &nbsp;
+				</div>
+				<div>{{file?.subject}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>Date Sent:</strong> &nbsp;
+				</div>
+				<div fxFlex>{{file?.dateSent | date:'short'}}</div>
+			</div>
+			<!--  
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>Date Seen:</strong>
+				</div>
+				<div fxFlex>{{file?.dateSeen | date:'short'}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>Type:</strong>
+				</div>
+				<div>{{file?.type}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>From ID:</strong>
+				</div>
+				<div>{{file?.fromId}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>To Id:</strong>
+				</div>
+				<div>{{file?.toId}}</div>
+			</div>
+-->
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>From Text:</strong> &nbsp;
+				</div>
+				<div>{{file?.fromText}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>Reply Text:</strong> &nbsp;
+				</div>
+				<div>{{file?.replyText}}</div>
+			</div>
+
+			<div fxLayout="row" fxFlex>
+				<div>
+					<strong>To Text:</strong> &nbsp;
+				</div>
+				<div>{{file?.toText}}</div>
+			</div>
+
+			<br>
+			<div>
+				<strong>Message:</strong>
+			</div>
+			<br>
+
+			<div fxLayout="row" fxFlex>
+
+				<div [innerHTML]="file?.message"></div>
+
+			</div>
+
+		</div>
+
+		</mat-card-content> 
+		
+		<mat-card-actions>
+		
+		<button style="margin-right:20px" mat-raised-button color="primary"
+			(click)="redirectToReply(file?.id)">Reply</button>
+		<button style="margin-right:20px" mat-raised-button color="primary" (click)="onCancel()">OK</button>
+		<button style="margin-right:20px" mat-raised-button color="primary"
+			(click)="redirectToForward(file?.id)">Forward</button>
+
+		</mat-card-actions>
+		
+		</p-panel>
+	</form>
+
+	</mat-card>
+</section>

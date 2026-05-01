@@ -1,0 +1,345 @@
+
+<app-popup #popupPhone></app-popup>
+
+<div class="grow flex-col w-full">
+
+    <button mat-raised-button color="primary" class="btn btn-success m-1 w-52" (click)="openPhone()">Open WebPhone</button>
+
+	<section>
+		<div class="container">
+			<section class="mt-1">
+				<mat-card class="p-3 mt-1">
+					<form [formGroup]="callForm" autocomplete="off" (ngSubmit)="saveCallSettings(callForm.value)">
+						<mat-card-content>
+
+							<p-panel>
+								<!--						
+            <label style="width: 100%;" align="center" id="txtRegStatus">{{txtRegStatus}}</label>          
+                
+            <label style="width: 100%;" align="center" id="txtCallStatus">{{txtCallStatus}}</label>
+-->
+								<h2>Registration</h2>
+								
+								<label align="center" id="txtRegStatus">{{txtRegStatus}}</label>
+								
+								<br />
+
+								<div class="span6">
+
+									<table class="w-52">
+										<tr>
+											<td>
+												<label style="height: 100%">Display Name:</label>
+											</td>
+											<td>
+												<mat-form-field class="w-52">
+													<input matInput type="text" placeholder="Display Name"
+														formControlName="txtDisplayName" id="txtDisplayName">
+												</mat-form-field>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<label style="height: 100%">Private Identity:</label>
+											</td>
+											<td>
+												<mat-form-field class="w-52">
+													<input matInput type="text" placeholder="Private Identity"
+														formControlName="txtPrivateIdentity" id="txtPrivateIdentity">
+												</mat-form-field>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<label style="height: 100%">Public Identity:</label>
+											</td>
+											<td>
+												<mat-form-field class="w-52">
+													<input matInput type="text" placeholder="Public Identity"
+														formControlName="txtPublicIdentity" id="txtPublicIdentity">
+												</mat-form-field>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<label style="height: 100%">Password:</label>
+											</td>
+											<td>
+												<mat-form-field class="w-52">
+													<input matInput type="password" placeholder="Password"
+														formControlName="txtPassword" id="txtPassword">
+												</mat-form-field>
+											</td>
+										</tr>
+
+										<!--  
+                <tr>
+                    <td>
+                        <label style="height: 100%">Realm:</label>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                        <input matInput type="text" placeholder="Realm" formControlName="txtRealm" id="txtRealm">
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label style="height: 100%">WebSocket Server URL<sup><a href="#aWebSocketServerURL">[2]</a></sup>:</label>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                        <input matInput type="text" placeholder="e.g. ws://sipml5.org:5062" formControlName="txtWebsocketServerUrl" id="txtWebsocketServerUrl">
+                        </mat-form-field> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">SIP outbound Proxy URL<sup><a href="#aSIPOutboundProxyURL">[3]</a></sup>:</label>
+                    </td>
+                    <td>
+                    <mat-form-field>                    
+                        <input matInput type="text" style="width: 100%; height: 100%" formControlName="txtSIPOutboundProxyUrl" id="txtSIPOutboundProxyUrl" value="" placeholder="e.g. udp://sipml5.org:5060" />
+                    </mat-form-field>
+                    </td>
+                </tr>                
+    -->
+
+										<!--
+								<tr>
+									<td colspan="2" align="right">
+										<div class="flex">
+											<button class="fuse-mat-button-medium mat-primary" mat-flat-button
+												(click)="sipRegister()">LogIn</button>
+											<button class="fuse-mat-button-medium mat-button-toggle-checked ml-3"
+												mat-flat-button (click)="sipUnRegister()">LogOut</button>
+										</div>
+									</td>
+								</tr>
+-->
+
+
+										<tr>
+											<td colspan="2" align="right">
+												<div class="flex">
+													<button id="connect" class="fuse-mat-button-medium mat-primary"
+														mat-flat-button (click)="sipRegister()">LogIn</button>
+													&nbsp;&nbsp;
+													<button id="disconnect"
+														class="fuse-mat-button-medium mat-button-toggle-checked"
+														mat-flat-button (click)="sipUnRegister()">LogOut</button>
+												</div>
+											</td>
+										</tr>
+
+									</table>
+								</div>
+
+
+							</p-panel>
+							<br>
+							<p-panel>
+
+								<h2>
+									Call control
+								</h2>
+															
+								<label align="center" id="txtCallStatus">{{txtCallStatus}}</label>
+								
+								<br />
+
+								<div class="span6">
+
+									<table style='width: 100%;'>
+
+
+										<tr>
+											<td style="white-space:nowrap;">
+												<mat-form-field class="w-52">
+													<input matInput type="text" style="width: 100%; height:100%;"
+														id="txtPhoneNumber" formControlName="txtPhoneNumber"
+														placeholder="Enter phone number to call" />
+												</mat-form-field>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="right">
+												<div class="flex">
+													<button id="call" class="fuse-mat-button-medium mat-primary"
+														mat-flat-button (click)="sipCall('call-audio')">Audio</button>
+													&nbsp;&nbsp;
+													<button id="hangup"
+														class="fuse-mat-button-medium mat-button-toggle-checked"
+														mat-flat-button (click)="sipHangUp()">Hang Up</button>
+												</div>
+											</td>
+										</tr>
+
+										<!--             
+                    <tr>
+                        <td id="tdVideo" class='tab-video'>
+                            <div id="divVideo" class='div-video'>
+                                <div id="divVideoRemote" style='position:relative; border:1px solid #009; height:100%; width:100%; z-index: auto; opacity: 1'>
+                                    <video class="video" width="100%" height="100%" id="video_remote" autoplay="autoplay" style="opacity: 0;
+                                        background-color: #000000; -webkit-transition-property: opacity; -webkit-transition-duration: 2s;"></video>
+                                </div>
+
+                                <div id="divVideoLocalWrapper" style="margin-left: 0px; border:0px solid #009; z-index: 1000">
+                                    <iframe class="previewvideo" style="border:0px solid #009; z-index: 1000"> </iframe>
+                                    <div id="divVideoLocal" class="previewvideo" style=' border:0px solid #009; z-index: 1000'>
+                                        <video class="video" width="100%" height="100%" id="video_local" autoplay="autoplay" muted="true" style="opacity: 0;
+                                            background-color: #000000; -webkit-transition-property: opacity;
+                                            -webkit-transition-duration: 2s;"></video>
+                                    </div>
+                                </div>
+                                <div id="divScreencastLocalWrapper" style="margin-left: 90px; border:0px solid #009; z-index: 1000">
+                                    <iframe class="previewvideo" style="border:0px solid #009; z-index: 1000"> </iframe>
+                                    <div id="divScreencastLocal" class="previewvideo" style=' border:0px solid #009; z-index: 1000'>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align='center'>
+                            <div id='divCallOptions' class='call-options' style='opacity: 0; margin-top: 0px'>
+                                <input type="button" class="btn" style="" id="btnFullScreen" value="FullScreen" disabled onclick='toggleFullScreen();' /> &nbsp;
+                                <input type="button" class="btn" style="" id="btnMute" value="Mute" onclick='sipToggleMute();' /> &nbsp;
+                                <input type="button" class="btn" style="" id="btnHoldResume" value="Hold" onclick='sipToggleHoldResume();' /> &nbsp;
+                                <input type="button" class="btn" style="" id="btnTransfer" value="Transfer" onclick='sipTransfer();' /> &nbsp;
+                                <input type="button" class="btn" style="" id="btnKeyPad" value="KeyPad" onclick='openKeyPad();' />
+                            </div>
+                        </td>
+                    </tr>
+    -->
+
+									</table>
+									<div class="prose prose-sm mt-4 max-w-3xl">
+										<p>
+											When the call is established, the remote audio is added to the following
+											HTML5 audio
+											element...
+										</p>
+										<audio id="remoteAudio" controls>
+											<p>Your browser doesn't support HTML5 audio.</p>
+										</audio>
+
+										<p>
+											While the call is established, DTMF may be sent using the following
+											"keypad"...
+										</p>
+										<div class="dtmf">DTMF sent:
+											<span id="dtmf"></span>
+										</div>
+										<div>
+											<div>
+												<button class="keypad" disabled>1</button>
+												<button class="keypad" disabled>2</button>
+												<button class="keypad" disabled>3</button>
+											</div>
+											<div>
+												<button class="keypad" disabled>4</button>
+												<button class="keypad" disabled>5</button>
+												<button class="keypad" disabled>6</button>
+											</div>
+											<div>
+												<button class="keypad" disabled>7</button>
+												<button class="keypad" disabled>8</button>
+												<button class="keypad" disabled>9</button>
+											</div>
+											<div>
+												<button class="keypad" disabled>*</button>
+												<button class="keypad" disabled>0</button>
+												<button class="keypad" disabled>#</button>
+											</div>
+										</div>
+
+										<p>
+											While the call is established, the session may placed on hold or muted...
+										</p>
+										<div>
+											<input type="checkbox" id="hold" name="hold" disabled>
+											<label class="ml-2" for="hold">Hold</label>
+										</div>
+										<div>
+											<input type="checkbox" id="mute" name="mute" disabled>
+											<label class="ml-2" for="mute">Mute</label>
+										</div>
+									</div>
+
+								</div>
+
+							</p-panel>
+						</mat-card-content>
+
+						<mat-card-actions align="start">
+
+							<!--					
+					<button type="button" mat-raised-button class="btn btn-success m-1"
+						(click)="sipRegister()">Login</button>
+					<button type="button" mat-raised-button class="btn btn-success m-1"
+						(click)="sipUnRegister()">LogOut</button>
+-->
+
+							<button mat-raised-button color="primary" [disabled]="!callForm.valid">Save</button>
+
+							<!--
+					<button type="button" mat-raised-button class="btn btn-primary m-1"
+						[disabled]="!callForm.valid">Save</button>
+						
+-->
+							<button type="button" mat-raised-button class="btn btn-success m-1"
+								(click)="loadDefaults()">Defaults</button>
+
+						</mat-card-actions>
+
+					</form>
+				</mat-card>
+			</section>
+
+			<audio id="ringtone" loop src="assets/sounds/ringtone.wav"> </audio>
+			<audio id="ringbacktone" loop src="assets/sounds/ringbacktone.wav"> </audio>
+			<audio id="dtmfTone" src="assets/sounds/dtmf.wav"> </audio>
+
+			<!-- 
+    <svg class="voicecall" xmlns="http://www.w3.org/2000/svg" version="1.1" id="microphone" data-container-transform="translate(3)" viewBox="0 0 16 20" x="0px" y="0px"><path d="M4.5 0c-1.4 0-2.5 1.1-2.5 2.5v5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5v-5c0-1.4-1.1-2.5-2.5-2.5zm-4.125 6.188a.5.5 0 0 0-.375.5v.813c0 2.302 1.763 4.184 4 4.438v3.063h-2c-.6 0-1 .4-1 1h7c0-.6-.4-1-1-1h-2v-3.063c2.237-.254 4-2.136 4-4.438v-.813a.5.5 0 1 0-1 0v.813c0 1.927-1.573 3.5-3.5 3.5s-3.5-1.573-3.5-3.5v-.813a.5.5 0 0 0-.563-.5.5.5 0 0 0-.063 0z" transform="translate(3)"/></svg>
+
+    <input type="button" class="btn btn-success" id="btnRegister" value="LogIn" (click)='sipRegister();' />
+    <input type="button" class="btn btn-success" id="sipCall2" value="Audio Call" (click)="sipCall('call-audio')" />
+    <input type="button" class="btn btn-success" id="btnCall" value="Answer" (click)="sipCall('call-audio')" />
+    <input type="button" class="btn btn-success" id="sipHangUp" value="Reject" (click)="sipHangUp()" />
+    <input type="button" class="btn btn-success" id="btnHangup" value="Hang Up" (click)="sipHangUp()" />
+    <input type="button" class="btn btn-danger" id="btnUnRegister" value="LogOut" (click)='sipUnRegister();' />
+    <input type="button" class="btn btn-danger" id="btnTransfer" value="Transfer" (click)='sipTransfer();' />
+    -->
+
+
+			<!-- Glass Panel -->
+			<div id='divGlassPanel' class='glass-panel' style='visibility:hidden'></div>
+			<!-- KeyPad Div
+    <div id='divKeyPad' class='span2 well div-keypad' style="left:0px; top:0px; width:250; height:240; visibility:hidden">
+        <table style="width: 100%; height: 100%">
+            <tr><td><input type="button" style="width: 33%" class="btn" value="1" onclick="sipSendDTMF('1');" /><input type="button" style="width: 33%" class="btn" value="2" onclick="sipSendDTMF('2');" /><input type="button" style="width: 33%" class="btn" value="3" onclick="sipSendDTMF('3');" /></td></tr>
+            <tr><td><input type="button" style="width: 33%" class="btn" value="4" onclick="sipSendDTMF('4');" /><input type="button" style="width: 33%" class="btn" value="5" onclick="sipSendDTMF('5');" /><input type="button" style="width: 33%" class="btn" value="6" onclick="sipSendDTMF('6');" /></td></tr>
+            <tr><td><input type="button" style="width: 33%" class="btn" value="7" onclick="sipSendDTMF('7');" /><input type="button" style="width: 33%" class="btn" value="8" onclick="sipSendDTMF('8');" /><input type="button" style="width: 33%" class="btn" value="9" onclick="sipSendDTMF('9');" /></td></tr>
+            <tr><td><input type="button" style="width: 33%" class="btn" value="*" onclick="sipSendDTMF('*');" /><input type="button" style="width: 33%" class="btn" value="0" onclick="sipSendDTMF('0');" /><input type="button" style="width: 33%" class="btn" value="#" onclick="sipSendDTMF('#');" /></td></tr>
+            <tr><td colspan=3><input type="button" style="width: 100%" class="btn btn-medium btn-danger" value="close" onclick="closeKeyPad();" /></td></tr>
+        </table>
+    </div>
+    -->
+			<!-- Call button options 
+    <ul id="ulCallOptions" class="dropdown-menu" style="visibility:hidden">
+        <li><a href="#" onclick='sipCall("call-audio");'>Audio</a></li>
+        <li><a href="#" onclick='sipCall("call-audiovideo");'>Video</a></li>
+        <li id='liScreenShare'><a href="#" onclick='sipShareScreen();'>Screen Share</a></li>
+        <li class="divider"></li>
+        <li><a href="#" onclick='uiDisableCallOptions();'><b>Disable these options</b></a></li>
+    </ul>
+    -->
+		</div>
+
+	</section>

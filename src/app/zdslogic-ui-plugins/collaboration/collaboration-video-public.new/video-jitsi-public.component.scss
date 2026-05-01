@@ -1,0 +1,12 @@
+#video-container
+{
+   width: 75%; //fallback
+   width: 75vw;
+}
+
+#jitsi-iframe{
+   iframe{
+      width: 100% !important;
+   }
+   
+}
